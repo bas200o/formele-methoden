@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String regex = "(a|b)(a|b)(a)*(a|b)(a|b)*(a|b)*(a|b)*";
+        String regex = "(a|b)(a|b)(a)*(a|b)(a|b)*(a|b)";
 
 
         String startNode = null;
@@ -95,13 +95,19 @@ public class Main {
                 }
             }
         }
-        
+
         for (int i = regex.length() - 1; i > 0; i--) {
             char c = regex.charAt(i);
             if (c == ')') {
-                if (regex.charAt(i + 1) == '*') {
-                    digraph.markEnd(endNodes.get(i));
-                } else {
+                try {
+                    if (regex.charAt(i + 1) == '*') {
+                        digraph.markEnd(endNodes.get(i));
+                    } else {
+                        digraph.markEnd(endNodes.get(i));
+                        break;
+                    }
+                }catch (StringIndexOutOfBoundsException e)
+                {
                     digraph.markEnd(endNodes.get(i));
                     break;
                 }
