@@ -19,11 +19,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         String regex = "(a|b)(a)*";
-        Node startNode = null;
-        Node endNode = null;
-        Node selectedNode = null;
-        Graph g = graph("ndfa").directed();
-        ArrayList<Node> connect2end = new ArrayList<>();
+        String startNode = null;
+        String endNode = null;
+        String selectedNode = null;
+        Digraph digraph = new Digraph("ndfa");
+        ArrayList<String> connect2end = new ArrayList<>();
 
 
         // enter sequence
@@ -32,22 +32,31 @@ public class Main {
         for (int i = 0; i < regex.length(); i++) {
             char c = regex.charAt(i);
             if(c == '('){
-                startNode = node("q" + i).with(Label.of("q" + i));
+                startNode = "q" + i;
                 selectedNode = startNode;
+                digraph.addNode(selectedNode);
+                if (endNode != null){
+                    link(digraph, endNode, startNode, "");
+                }
+
+
                 continue;
             }
 
             if(c == ')'){
-                endNode = node("q" + i).with(Label.of("q" + i));
+                endNode = "q" + i;
+                digraph.addNode(endNode);
+                link(digraph, selectedNode, endNode, "");
+                connectEnds(digraph, connect2end, endNode);
+                connect2end = new ArrayList<>();
                 selectedNode = endNode;
-                connectEnds(g, connect2end, endNode);
                 continue;
             }
 
             if(c == '*'){
                 if(startNode != null && endNode != null) {
-                    link(g, startNode, endNode, "");
-                    link(g, endNode, startNode, "");
+                    link(digraph, startNode, endNode, "");
+                    link(digraph, endNode, startNode, "");
                 }
             }
 
@@ -65,8 +74,9 @@ public class Main {
                         chars.add(t);
                         i++;
                     }else{
-                        Node n = node("q"+i).with(Label.of("q" + i));
-                        link(g, selectedNode, n, chars.toString());
+                        String n = "q" + i;
+                        digraph.addNode(n);
+                        link(digraph, selectedNode, n, chars.toString());
 
                         if (t != '|')
                             selectedNode = n;
@@ -80,37 +90,27 @@ public class Main {
             }
         }
 
-        Node start = node("start");
-        Node end = node("end");
 
-        Graph f = graph()
-        .with(
-                start.link(end)
-        );
-
-        Graphviz.fromGraph(f).width(200).render(Format.PNG).toFile(new File("example/ex1m.png"));
+        digraph.generate("graph.dot");
     }
 
-    public static void connectEnds(Graph g, ArrayList<Node> nodes, Node end)
+    public static void connectEnds(Digraph g, ArrayList<String> nodes, String end)
     {
         if (nodes.isEmpty())
         {
             return;
         }
 
-        for (Node n : nodes) {
+        for (String n : nodes) {
             link(g, n, end,"");
         }
 
+
     }
 
-    public static void link(Graph g, Node s, Node e, String text)
+    public static void link(Digraph g, String s, String e, String text)
     {
-        g.with(
-                s.link(
-                        to(e).with(Label.of(text))
-                )
-        );
+        g.link(s,e).setLabel(text);
     }
 
 

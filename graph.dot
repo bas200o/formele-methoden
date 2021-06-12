@@ -1,0 +1,18 @@
+digraph ndfa {
+IDq0 [label="q0"];
+IDq1 [label="q1"];
+IDq3 [label="q3"];
+IDq4 [label="q4"];
+IDq5 [label="q5"];
+IDq6 [label="q6"];
+IDq7 [label="q7"];
+IDq0 -> IDq1 [label="[a]"];
+IDq0 -> IDq3 [label="[b]"];
+IDq1 -> IDq4 [label=""];
+IDq3 -> IDq4 [label=""];
+IDq4 -> IDq5 [label=""];
+IDq5 -> IDq6 [label="[a]"];
+IDq5 -> IDq7 [label=""];
+IDq6 -> IDq7 [label=""];
+IDq7 -> IDq5 [label=""];
+}
