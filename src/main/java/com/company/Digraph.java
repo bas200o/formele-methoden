@@ -24,6 +24,15 @@ public class Digraph {
         return this;
     }
 
+    public void markEnd(String nodeID) {
+        for (Node n : nodes) {
+            if (n.nodeID.equals(nodeID)){
+                n.endNode = true;
+                break;
+            }
+        }
+    }
+
     public boolean exists(String nodeID) {
         for (Node n : nodes) {
             if (n.nodeID.equals(nodeID)) {
@@ -77,10 +86,17 @@ public class Digraph {
             PrintWriter writer = new PrintWriter(filename, "UTF-8");
             writer.println("digraph " + graphname + " {");
             for (Node n : nodes) {
-                if (n.hasName())
-                    writer.println("ID" + n.nodeID + " [label=\"" + n.nodeName + "\"];");
-                else
-                    writer.println("ID" + n.nodeID + " [label=\"" + n.nodeID + "\"];");
+                if (n.hasName()) {
+                    if (n.endNode)
+                        writer.println("ID" + n.nodeID + " [shape = doublecircle] [label=\"" + n.nodeName + "\"];");
+                    else
+                        writer.println("ID" + n.nodeID + " [label=\"" + n.nodeName + "\"];");
+                }else {
+                    if (n.endNode)
+                        writer.println("ID" + n.nodeID + " [shape = doublecircle] [label=\"" + n.nodeID + "\"];");
+                    else
+                        writer.println("ID" + n.nodeID + " [label=\"" + n.nodeID + "\"];");
+                }
             }
             for (Node n : nodes) {
                 if (n.children.size() > 0) {
@@ -108,6 +124,7 @@ public class Digraph {
         private String linkLabel;
         private ArrayList<Node> children = new ArrayList<>();
         private Digraph graph;
+        public boolean endNode = false;
 
         public Node(String nodeID) {
             this.nodeID = nodeID;
@@ -143,6 +160,8 @@ public class Digraph {
             this.children.add(newChild);
             return newChild;
         }
+
+
 
         public boolean hasName() {
             return (nodeName != null);
