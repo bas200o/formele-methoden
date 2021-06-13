@@ -5,6 +5,13 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+/**
+ * @author Jason van Hattum
+ *  Code from https://github.com/Jason-vh/JavaGraph/blob/master/Digraph.java
+ *  class edited by Bas Winkelhof for doublecircle marking
+ */
+
+
 public class Digraph {
     private String graphname;
     private ArrayList<Node> nodes = new ArrayList<>();
