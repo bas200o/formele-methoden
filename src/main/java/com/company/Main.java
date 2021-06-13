@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String regex = "(a|b)(a|b)(a)*(a|b)(a|b)*(a|b)";
+        String regex = "(a)+(a|b)*(a|b)";
 
 
         String startNode = null;
@@ -54,6 +54,12 @@ public class Main {
             if (c == '*') {
                 if (startNode != null && endNode != null) {
                     link(digraph, startNode, endNode, "");
+                    link(digraph, endNode, startNode, "");
+                }
+            }
+
+            if (c == '+') {
+                if (startNode != null && endNode != null) {
                     link(digraph, endNode, startNode, "");
                 }
             }
