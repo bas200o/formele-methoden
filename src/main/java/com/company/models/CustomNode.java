@@ -1,5 +1,6 @@
 package com.company.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,14 +11,14 @@ import java.util.List;
  * @param start a bool containing true/false, depending on whether the node is a starting point
  * @param end a bool containing true/false, depending on whether the node is an end point
  */
-public record CustomNode(String name, List<CustomTransition> connections, boolean start,
-                  boolean end) {
+public record CustomNode(String name, ArrayList<CustomTransition> connections, boolean start,
+                         boolean end) {
 
     public String getName() {
         return this.name;
     }
 
-    public List<CustomTransition> getConnections() {
+    public ArrayList<CustomTransition> getConnections() {
         return this.connections;
     }
 
