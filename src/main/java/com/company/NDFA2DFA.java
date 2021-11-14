@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class NDFA2DFA {
 
     private ArrayList<Bridge> NDFABridges;
+    public Linker linker = new Linker();
+    public Digraph digraph = new Digraph("dfa");
 
     public NDFA2DFA(ArrayList<Bridge> NDFABridges) {
         this.NDFABridges = NDFABridges;
@@ -34,21 +36,21 @@ public class NDFA2DFA {
 
                 System.out.println("pass b " + i + " " + t);
             }
-
         }
+
+
 
     }
 
-    public String findNodes(String selNode, Bridge selBridge, String letter)
-    {
+    public String findNodes(String selNode, Bridge selBridge, String letter) {
 
         selNode = selBridge.endnode;
         String s = selBridge.endnode + "";
 
-        while(true) {
+        while (true) {
             ArrayList<Bridge> bridges = new ArrayList<>();
             for (Bridge b : NDFABridges) {
-                if (b.startnode.equals(selNode)) {
+                if (b.startnode.equals(selNode) && !b.endnode.equals(selNode)) {
                     bridges.add(b);
                 }
             }
@@ -64,19 +66,12 @@ public class NDFA2DFA {
             }
 
             boolean exit = true;
-            for (Bridge b: bridges) {
-                if (b.key.equals("ε"))
-                {
-                    exit = false;
-                }
-                if (letter.equals("a") && b.key.equals("a"))
-                {
-                    letter = "";
-                    selNode = b.endnode;
+            for (Bridge b : bridges) {
+                if (b.key.equals("ε")) {
                     exit = false;
                 }
             }
-            if (exit){
+            if (exit) {
                 break;
             }
         }

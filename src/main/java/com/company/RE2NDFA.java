@@ -107,7 +107,7 @@ public class RE2NDFA {
             }
         }
 
-        digraph.generate("graph.dot");
+        digraph.generate("NDFA.dot");
         return 1;
     }
 

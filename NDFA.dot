@@ -1,16 +1,13 @@
 digraph ndfa {
 IDq0 [label="q0"];
 IDq1 [label="q1"];
-IDq2 [label="q2"];
+IDq2 [shape = doublecircle] [label="q2"];
 IDq4 [label="q4"];
 IDq5 [label="q5"];
 IDq7 [label="q7"];
-IDq8 [label="q8"];
-IDq10 [label="q10"];
-IDq11 [label="q11"];
-IDq13 [label="q13"];
-IDq14 [shape = doublecircle] [label="q14"];
-IDq0 -> IDq1 [label="[a]"];
+IDq8 [shape = doublecircle] [label="q8"];
+IDq0 -> IDq1 [label="[b]"];
+IDq0 -> IDq2 [label="ε"];
 IDq1 -> IDq2 [label="ε"];
 IDq2 -> IDq0 [label="ε"];
 IDq2 -> IDq4 [label="ε"];
@@ -20,9 +17,4 @@ IDq4 -> IDq8 [label="ε"];
 IDq5 -> IDq8 [label="ε"];
 IDq7 -> IDq8 [label="ε"];
 IDq8 -> IDq4 [label="ε"];
-IDq8 -> IDq10 [label="ε"];
-IDq10 -> IDq11 [label="[a]"];
-IDq10 -> IDq13 [label="[b]"];
-IDq11 -> IDq14 [label="ε"];
-IDq13 -> IDq14 [label="ε"];
 }

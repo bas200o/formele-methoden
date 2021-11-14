@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
         String regex;
 
-        regex = "(a)+(a|b)*(a|b)";
+        regex = "(b)*(a|b)*";
 
         RE2NDFA re2NDFA = new RE2NDFA(regex);
         re2NDFA.convert();
