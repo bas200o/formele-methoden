@@ -50,11 +50,10 @@ public class NDFA2DFA {
         while (true) {
             ArrayList<Bridge> bridges = new ArrayList<>();
             for (Bridge b : NDFABridges) {
-                if (b.startnode.equals(selNode) && !b.endnode.equals(selNode)) {
+                if (b.startnode.equals(selNode)) {
                     bridges.add(b);
                 }
             }
-
 
             for (Bridge b : bridges) {
                 if (b.key.equals("ε")) {
@@ -77,8 +76,6 @@ public class NDFA2DFA {
         }
 
         return s;
-
-
     }
 
 }

@@ -17,7 +17,7 @@ public class RE2NDFA {
     public HashMap<Integer, String> endNodes = new HashMap<>();
 
     public RE2NDFA(String regex) {
-        this.regex = regex;
+        this.regex = regex + "1";
     }
 
     public int convert() {
@@ -33,8 +33,6 @@ public class RE2NDFA {
                 } else {
                     //Mark as start
                 }
-
-
                 continue;
             }
 
@@ -62,7 +60,6 @@ public class RE2NDFA {
                 }
             }
 
-
             if (c == 'a' || c == 'b') {
                 ArrayList<Character> chars = new ArrayList<>();
 
@@ -83,27 +80,16 @@ public class RE2NDFA {
                         else
                             connect2end.add(n);
 
-
                         break;
                     }
                 }
             }
-        }
 
-        for (int i = regex.length() - 1; i > 0; i--) {
-            char c = regex.charAt(i);
-            if (c == ')') {
-                try {
-                    if (regex.charAt(i + 1) == '*') {
-                        digraph.markEnd(endNodes.get(i));
-                    } else {
-                        digraph.markEnd(endNodes.get(i));
-                        break;
-                    }
-                } catch (StringIndexOutOfBoundsException e) {
-                    digraph.markEnd(endNodes.get(i));
-                    break;
-                }
+            if (c == '1'){
+                String n = "q" + i;
+                digraph.addNode(n);
+                linker.link(digraph, selectedNode, n, "");
+                digraph.markEnd(n);
             }
         }
 
