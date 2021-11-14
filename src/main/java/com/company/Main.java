@@ -68,7 +68,7 @@ public class Main {
         System.out.println("-------------------------------");
 
         // Initialize all the connections
-        List<CustomTransition> connectionsQ0 = List.of(new CustomTransition("q0", "a", TransitionType.TO), new CustomTransition("q2", "b", TransitionType.TO));
+        List<CustomTransition> connectionsQ0 = List.of(new CustomTransition("q0", "a", TransitionType.TO), new CustomTransition("q2", "b", TransitionType.TO), new CustomTransition("q2", "", TransitionType.TO));
         List<CustomTransition> connectionsQ1 = List.of(new CustomTransition("q0", "a", TransitionType.TO), new CustomTransition("q2", "b", TransitionType.TO));
         List<CustomTransition> connectionsQ2 = List.of(new CustomTransition("q1", "a", TransitionType.TO), new CustomTransition("q2", "b", TransitionType.TO));
 

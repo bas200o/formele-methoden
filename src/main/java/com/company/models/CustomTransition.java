@@ -1,6 +1,8 @@
 package com.company.models;
 import com.company.enums.TransitionType;
 
+import java.util.Objects;
+
 /**
  * A record class which will hold the Transition data
  *
@@ -14,6 +16,9 @@ public record CustomTransition(String name, String label, TransitionType transit
     }
 
     public String getLabel() {
+        if (Objects.equals(label, "")) {
+            return "ε";
+        }
         return label;
     }
 
