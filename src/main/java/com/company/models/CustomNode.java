@@ -11,14 +11,14 @@ import java.util.List;
  * @param start a bool containing true/false, depending on whether the node is a starting point
  * @param end a bool containing true/false, depending on whether the node is an end point
  */
-public record CustomNode(String name, ArrayList<CustomTransition> connections, boolean start,
+public record CustomNode(String name, List<CustomTransition> connections, boolean start,
                          boolean end) {
 
     public String getName() {
         return this.name;
     }
 
-    public ArrayList<CustomTransition> getConnections() {
+    public List<CustomTransition> getConnections() {
         return this.connections;
     }
 
