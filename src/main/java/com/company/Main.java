@@ -15,6 +15,9 @@ public class Main {
         RE2NDFA re2NDFA = new RE2NDFA(regex);
         re2NDFA.convert();
 
+        NDFA2DFA ndfa2DFA = new NDFA2DFA(re2NDFA.getBridges());
+        ndfa2DFA.convert();
+
 
 
 

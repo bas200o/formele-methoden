@@ -110,4 +110,9 @@ public class RE2NDFA {
         digraph.generate("graph.dot");
         return 1;
     }
+
+    public ArrayList<Bridge> getBridges()
+    {
+        return this.linker.bridges;
+    }
 }
