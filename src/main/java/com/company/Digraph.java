@@ -117,7 +117,7 @@ public class Digraph {
             }
             writer.println("}");
             writer.close();
-            System.out.println("Tree generated");
+            System.out.println("Tree generated at " + System.getProperty("user.dir") + "/"+ filename);
         } catch (FileNotFoundException e) {
             System.out.println("JavaGraph: " + filename + " could not be written to.");
         } catch (UnsupportedEncodingException e) {
