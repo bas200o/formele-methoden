@@ -1,0 +1,18 @@
+digraph id
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q1; 
+	q1q5 [label =q1q5, shape = doublecircle]; 
+	q3q4q5 [label =q3q4q5, shape = doublecircle]; 
+	q5 [label =q5, shape = doublecircle]; 
+	q1 -> q2q3q4 ["label"="a"]; 
+	q1 -> q4 ["label"="b"]; 
+	q1q5 -> q2q3q4 ["label"="a"]; 
+	q1q5 -> q4 ["label"="b"]; 
+	q2q3q4 -> q3q4q5 ["label"="a"]; 
+	q2q3q4 -> q1q5 ["label"="b"]; 
+	q3q4q5 -> q3q4q5 ["label"="a"]; 
+	q3q4q5 -> q5 ["label"="b"]; 
+	q4 -> q5 ["label"="a"]; 
+	q5 -> q4 ["label"="a"]; 
+}
