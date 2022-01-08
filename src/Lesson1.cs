@@ -6,10 +6,6 @@ namespace formele_methoden
 {
     class Lesson1
     {
-        public Lesson1()
-        {
-
-        }
 
         public void dfa()
         {

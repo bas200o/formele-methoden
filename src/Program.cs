@@ -8,15 +8,13 @@ namespace formele_methoden
         static void Main(string[] args)
         {
             Demo demo = new Demo();
-            NDFA<String> nDFA1 = demo.demoNDFA1();
-            
+
+            RegEx regEx = demo.demoRegex();
+
+            NDFA<String> nDFA1 = demo.regex2ndfa(regEx);
+
             DFA<string> dFA = demo.NDFA2DFA(nDFA1);
-            //DFA<String> miniDFA = demo.minimalize(dFA);
-
-            Lesson1 l = new Lesson1();
-            l.minimalize();
-
-            
+            DFA<String> miniDFA = demo.minimalize(dFA);
         }
     }
 
