@@ -138,8 +138,6 @@ namespace formele_methoden
                 graph.AddElement(endEdges);
             }
 
-
-
             foreach (var transition in transitions)
             {
                 Edge tempEdge = new Edge();
@@ -155,25 +153,23 @@ namespace formele_methoden
 
             DotDocument doc = new DotDocument();
             doc.SaveToFile(graph, output);
-
-
-
+            Console.WriteLine("Writen file to: " + Directory.GetCurrentDirectory() + "/" + output);
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = "/bin/bash";
-                string tempString = output.Substring(0, output.IndexOf(".dot"));
-                startInfo.Arguments = "-Tpng " + output + " -o" + tempString + ".png";
+                startInfo.FileName = "/usr/bin/dot";
+                string fName = output.Substring(0, output.IndexOf(".dot"));
+                startInfo.Arguments = "-Tpng " + output + " -o" + fName + ".png";
 
                 Process.Start(startInfo);
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo("C:/Program Files/Graphviz/bin/dot.exe");
-                string tempString = output.Substring(0, output.IndexOf(".dot"));
-                startInfo.Arguments = "-Tpng " + output + " -o" + tempString + ".png";
-                
+                string fName = output.Substring(0, output.IndexOf(".dot"));
+                startInfo.Arguments = "-Tpng " + output + " -o" + fName + ".png";
+
                 Process.Start(startInfo);
             }
             else

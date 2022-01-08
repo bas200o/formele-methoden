@@ -219,14 +219,14 @@ namespace formele_methoden
             automaton.defineAsFinalState("q9");
 
             automaton.printTransitions();
-            automaton.generateGraph("Graphs/DFApreMinimizeTest.dot");
+            automaton.generateGraph("TestGraphs/DFApreMinimizeTest.dot");
             Console.WriteLine("minimalization...");
 
             Minimalization minimalization = new Minimalization();
 
             var minimize = minimalization.minimalize(automaton);
 
-            minimize.generateGraph("Graphs/DFAPostMinimizeTest.dot");
+            minimize.generateGraph("TestGraphs/DFAMinimizeTest.dot");
             Console.WriteLine("minimalization complete");
 
             // Check if DFA accepts.

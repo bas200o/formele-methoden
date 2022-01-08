@@ -2,7 +2,6 @@ digraph id
 {
 	rankdir =  LR; node_start [label = "", shape = none]; 
 	node_start ->  q1; 
-	node_start ->  q2; 
 	q5 [label =q5, shape = doublecircle]; 
 	q1 -> q2 ["label"="a"]; 
 	q1 -> q3 ["label"="a"]; 

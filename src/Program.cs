@@ -7,15 +7,16 @@ namespace formele_methoden
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Demo demo = new Demo();
+            NDFA<String> nDFA1 = demo.demoNDFA1();
+            
+            DFA<string> dFA = demo.NDFA2DFA(nDFA1);
+            //DFA<String> miniDFA = demo.minimalize(dFA);
 
-            if (!Directory.Exists("Graphs/"))
-            {
-                Directory.CreateDirectory("Graphs/");
-            }
+            Lesson1 l = new Lesson1();
+            l.minimalize();
 
-            Lesson1 lesson1 = new Lesson1();
-            lesson1.ndfaToDfa();
+            
         }
     }
 

@@ -14,10 +14,6 @@ namespace formele_methoden
         public bool lastItiration = true;
         public List<Partition> finalP = new List<Partition>();
 
-        public Minimalization()
-        {
-        }
-
         public DFA<string> minimalize(DFA<string> dfa)
         {
             initStates();
@@ -133,13 +129,14 @@ namespace formele_methoden
         {
             List<Partition> newFinal = new List<Partition>();
 
-            foreach(var partition in final)
+            for (int i = 0; i < final.Count ; i++)
             {
-                partition.ab[0] = getToPartition(this.dfa.GetToStates(partition.States.ElementAt(0), 'a').ElementAt(0), final);
-                partition.ab[1] = getToPartition(this.dfa.GetToStates(partition.States.ElementAt(0), 'b').ElementAt(0), final);
-                newFinal.Add(partition);
-            }
+                Partition part = final[i];
 
+                part.ab[0] = getToPartition(this.dfa.GetToStates(part.States.ElementAt(0), 'a').ElementAt(0), final);
+                part.ab[1] = getToPartition(this.dfa.GetToStates(part.States.ElementAt(0), 'b').ElementAt(0), final);
+                newFinal.Add(part);
+            }
 
             return newFinal;
         }
