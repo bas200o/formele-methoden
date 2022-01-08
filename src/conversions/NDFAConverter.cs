@@ -82,7 +82,6 @@ namespace formele_methoden
             }
 
             tempDFA.states = newStates;
-
             tempDFA.startStates.Add(ndfa.startStates.First());
 
             //add Finalstates to new DFA
@@ -100,38 +99,6 @@ namespace formele_methoden
                         tempDFA.finalStates.Add(state);
                     }
                 }
-            }
-
-            //Check if endless state exists. If not, delete endless state from transitions.
-            int fuikExists = 0;
-            foreach (var trans in tempDFA.transitions)
-            {
-                if (trans.toState.Equals("Fuik") && trans.fromState.Equals("Fuik"))
-                {
-                    fuikExists++;
-                }
-            }
-
-            if (fuikExists == tempDFA.alphabet.Count)
-            {
-                var temp2DFA = new List<Transition<string>>();
-
-                foreach (var trans in tempDFA.transitions)
-                {
-                    if (!trans.toState.ToString().Equals("Fuik"))
-                    {
-                        temp2DFA.Add(trans);
-                    }
-                }
-
-                tempDFA.transitions.Clear();
-
-
-                for (int i = 0; i < temp2DFA.Count(); i++)
-                {
-                    tempDFA.transitions.Add(temp2DFA.ElementAt(i));
-                }
-                
             }
 
             return tempDFA;
