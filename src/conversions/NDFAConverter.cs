@@ -124,13 +124,6 @@ namespace formele_methoden
                         removeDFA.transitions.Remove(transition);
                     }
                 }
-                // foreach (var state in tempDFA.states)
-                // {
-                //     // if (state.Equals("Fuik"))
-                //     // {
-                //     //     removeDFA.states.Remove(state);
-                //     // }
-                // }
             }
 
             return removeDFA;
