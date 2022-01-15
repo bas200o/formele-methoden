@@ -1,0 +1,4 @@
+digraph graph_2
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+}

@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "ID49wHZcnOjo3DLn82hH1RWSW8/ehUzYf+qjP33I7c/7Uh3e1JXB8JjQLfNhFc4ndst6wslPXYxdtZDC8eiKtw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cools\\source\\repos\\formele_methoden\\formele_methoden\\formele_methoden.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cools\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512",
+    "C:\\Users\\cools\\.nuget\\packages\\rubjerg.graphviz\\1.0.8\\rubjerg.graphviz.1.0.8.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Rubjerg.Graphviz 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Rubjerg.Graphviz",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
