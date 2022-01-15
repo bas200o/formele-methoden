@@ -112,19 +112,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cools\\.nuget\\packages\\": {}
+    "C:\\Users\\Cinque\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cools\\source\\repos\\formele_methoden\\formele_methoden\\formele_methoden.csproj",
+      "projectUniqueName": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
       "projectName": "formele_methoden",
-      "projectPath": "C:\\Users\\cools\\source\\repos\\formele_methoden\\formele_methoden\\formele_methoden.csproj",
-      "packagesPath": "C:\\Users\\cools\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cools\\source\\repos\\formele_methoden\\formele_methoden\\obj\\",
+      "projectPath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
+      "packagesPath": "C:\\Users\\Cinque\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cools\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Cinque\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ID49wHZcnOjo3DLn82hH1RWSW8/ehUzYf+qjP33I7c/7Uh3e1JXB8JjQLfNhFc4ndst6wslPXYxdtZDC8eiKtw==",
+  "dgSpecHash": "H2/EL2y3BEdBO55evz5Q5qFxtnGlhUObQxP1uiEy109B+rQb27wfLVHoOhBoTgYLBGqDsWqZggNxQiC4dWbiJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cools\\source\\repos\\formele_methoden\\formele_methoden\\formele_methoden.csproj",
+  "projectFilePath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cools\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512",
-    "C:\\Users\\cools\\.nuget\\packages\\rubjerg.graphviz\\1.0.8\\rubjerg.graphviz.1.0.8.nupkg.sha512"
+    "C:\\Users\\Cinque\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512",
+    "C:\\Users\\Cinque\\.nuget\\packages\\rubjerg.graphviz\\1.0.8\\rubjerg.graphviz.1.0.8.nupkg.sha512"
   ],
   "logs": [
     {
