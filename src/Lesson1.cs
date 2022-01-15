@@ -28,7 +28,7 @@ namespace formele_methoden
 
             automaton.printTransitions();
 
-            Console.WriteLine(automaton.accept("bbbb"));
+            //Console.WriteLine(automaton.accept("bbbb"));
 
             automaton.generateGraph("Graphs/DFATest.dot");
         }
@@ -59,7 +59,7 @@ namespace formele_methoden
 
             automaton.printTransitions();
 
-            Console.WriteLine(automaton.accept("bab"));
+            //Console.WriteLine(automaton.accept("bab"));
 
             automaton.generateGraph("Graphs/NDFATest.dot");
         }
@@ -91,7 +91,7 @@ namespace formele_methoden
 
             automaton.printTransitions();
 
-            Console.WriteLine(automaton.accept("bab"));
+            //Console.WriteLine(automaton.accept("bab"));
 
             automaton.generateGraph("Graphs/NDFAPreTest.dot");
 
@@ -122,11 +122,11 @@ namespace formele_methoden
             // expr5: "(baa | baa)+ (a|b)*"
             var expr5 = expr4.dot(all);
 
-            //Console.WriteLine("taal van (baa):\n" + expr1.languageToString(expr1.getLanguage(5)));
-            //Console.WriteLine("taal van (bb):\n" + expr2.languageToString(expr2.getLanguage(5)));
-            //Console.WriteLine("taal van (baa | bb):\n" + expr3.languageToString(expr3.getLanguage(5)));
+            ////Console.WriteLine("taal van (baa):\n" + expr1.languageToString(expr1.getLanguage(5)));
+            ////Console.WriteLine("taal van (bb):\n" + expr2.languageToString(expr2.getLanguage(5)));
+            ////Console.WriteLine("taal van (baa | bb):\n" + expr3.languageToString(expr3.getLanguage(5)));
 
-            Console.WriteLine("Language? van " + expr5.ToString() + ":");
+            //Console.WriteLine("Language? van " + expr5.ToString() + ":");
             expr5.printLanguage(expr5.getLanguage(4));
 
             //NDFA<string> automaton = RegExConverter.CreateNDFA(all);
@@ -135,8 +135,8 @@ namespace formele_methoden
 
             //automaton.generateGraph("Graphs/NDFAFromRegExTest.dot");
 
-            //Console.WriteLine("taal van (baa | bb)+:\n" + expr4.languageToString(expr4.getLanguage(5)));
-            //Console.WriteLine("taal van (baa | bb)+ (a|b)*:\n" + expr5.languageToString(expr5.getLanguage(6)));
+            ////Console.WriteLine("taal van (baa | bb)+:\n" + expr4.languageToString(expr4.getLanguage(5)));
+            ////Console.WriteLine("taal van (baa | bb)+ (a|b)*:\n" + expr5.languageToString(expr5.getLanguage(6)));
         }
 
         public void reGexToDFA()
@@ -161,7 +161,7 @@ namespace formele_methoden
 
             NDFAConverter nDFAConverter = new NDFAConverter();
 
-            Console.WriteLine("Language? van " + all.ToString() + ":");
+            //Console.WriteLine("Language? van " + all.ToString() + ":");
             all.printLanguage(all.getLanguage(4));
 
             NDFA<string> automaton = RegExConverter.CreateNDFA(all);
@@ -216,17 +216,17 @@ namespace formele_methoden
 
             automaton.printTransitions();
             automaton.generateGraph("TestGraphs/DFApreMinimizeTest.dot");
-            Console.WriteLine("minimalization...");
+            //Console.WriteLine("minimalization...");
 
             Minimalization minimalization = new Minimalization();
 
             var minimize = minimalization.minimalize(automaton);
 
             minimize.generateGraph("TestGraphs/DFAMinimizeTest.dot");
-            Console.WriteLine("minimalization complete");
+            //Console.WriteLine("minimalization complete");
 
             // Check if DFA accepts.
-            //Console.WriteLine(minimize.accept("ba"));
+            ////Console.WriteLine(minimize.accept("ba"));
         }
 
         public void minimalizeReverse()
@@ -260,16 +260,16 @@ namespace formele_methoden
 
             automaton.printTransitions();
             automaton.generateGraph("Graphs/NDFApreReverseTest.dot");
-            Console.WriteLine("reversing...");
+            //Console.WriteLine("reversing...");
 
             var automaton2 = minimalization.reverseAutomaton(automaton);
             automaton2.printTransitions();
-            Console.WriteLine("reverse complete... Converting to DFA...");
+            //Console.WriteLine("reverse complete... Converting to DFA...");
             automaton2.generateGraph("Graphs/ReverseTest.dot");
 
             var automaton3 = nDFAConverter.createDFA(automaton2);
             automaton3.printTransitions();
-            Console.WriteLine("DFA complete");
+            //Console.WriteLine("DFA complete");
 
             automaton3.generateGraph("Graphs/NormalizeTest.dot");
         }

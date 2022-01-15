@@ -4,8 +4,6 @@ digraph id
 	node_start ->  q0; 
 	q5q3q1q2q4q6 [label =q5q3q1q2q4q6, shape = doublecircle]; 
 	q7q3q1q2q4q6 [label =q7q3q1q2q4q6, shape = doublecircle]; 
-	Fuik -> Fuik ["label"="a"]; 
-	Fuik -> Fuik ["label"="b"]; 
 	q0 -> q5q3q1q2q4q6 ["label"="a"]; 
 	q0 -> q7q3q1q2q4q6 ["label"="b"]; 
 	q5q3q1q2q4q6 -> q5q3q1q2q4q6 ["label"="a"]; 

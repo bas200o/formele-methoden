@@ -14,7 +14,7 @@ namespace formele_methoden
             NDFA<String> nDFA1 = demo.regex2ndfa(regEx);
 
             DFA<string> dFA = demo.NDFA2DFA(nDFA1);
-            DFA<String> miniDFA = demo.minimalize(dFA);
+            //DFA<String> miniDFA = demo.minimalize(dFA);
         }
     }
 

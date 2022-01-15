@@ -150,7 +150,7 @@ namespace formele_methoden
                     break;
 
                 default:
-                    Console.WriteLine("getLanguage is not defined for the operator: " + this.operate);
+                    //Console.WriteLine("getLanguage is not defined for the operator: " + this.operate);
                     break;
 
             }
@@ -161,7 +161,7 @@ namespace formele_methoden
         {
             foreach (string item in language)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
             }
         }
 

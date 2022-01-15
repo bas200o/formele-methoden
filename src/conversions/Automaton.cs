@@ -89,7 +89,7 @@ namespace formele_methoden
         {
             foreach (Transition<T> transition in this.transitions)
             {
-                Console.WriteLine(transition.toString());
+                //Console.WriteLine(transition.toString());
             }
         }
 
@@ -153,7 +153,7 @@ namespace formele_methoden
 
             DotDocument doc = new DotDocument();
             doc.SaveToFile(graph, output);
-            Console.WriteLine("Writen file to: " + Directory.GetCurrentDirectory() + "/" + output);
+            //Console.WriteLine("Writen file to: " + Directory.GetCurrentDirectory() + "/" + output);
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
@@ -174,7 +174,7 @@ namespace formele_methoden
             }
             else
             {
-                Console.WriteLine("f voor mac");
+                //Console.WriteLine("f voor mac");
                 System.Environment.Exit(42);
             }
 

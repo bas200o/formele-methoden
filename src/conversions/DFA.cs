@@ -7,7 +7,6 @@ namespace formele_methoden
     class DFA<T> : Automaton<T> where T : IComparable
     {
         public HashSet<Transition<T>> transitions;
-
         public SortedSet<T> states;
         public SortedSet<T> startStates;
         public SortedSet<T> finalStates;
@@ -42,7 +41,7 @@ namespace formele_methoden
             }
             else
             {
-                Console.WriteLine("Cannot define [" + t.ToString() + "] as startState, as a starting state is already defined.");
+                //Console.WriteLine("Cannot define [" + t.ToString() + "] as startState, as a starting state is already defined.");
             }
         }
 
@@ -80,7 +79,7 @@ namespace formele_methoden
         //Checks if input string is accepted in DFA
         public bool accept(String s)
         {
-            Console.WriteLine("Next string going though the accept() method for DFA: " + s);
+            //Console.WriteLine("Next string going though the accept() method for DFA: " + s);
 
             //checks if input string contains values from alphabet
             foreach (char c in s)

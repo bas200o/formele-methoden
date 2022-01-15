@@ -143,14 +143,14 @@ namespace formele_methoden
 
         private void printTable(List<Partition> partitions)
         {
-            Console.WriteLine("Toestand\ta\tb");
+            //Console.WriteLine("Toestand\ta\tb");
             foreach(var p in partitions)
             {
                 if (p.ab != null)
                 {
                     foreach (var state in p.States)
                     {
-                        Console.WriteLine(p.PartitionName + "|\t" + state + "   " + p.ab[0] + "|\t" + "   " + p.ab[1]);
+                        //Console.WriteLine(p.PartitionName + "|\t" + state + "   " + p.ab[0] + "|\t" + "   " + p.ab[1]);
                     }
                 }
             }

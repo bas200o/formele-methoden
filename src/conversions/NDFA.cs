@@ -48,7 +48,7 @@ namespace formele_methoden
         //Checks if input string is accepted in DFA
         public bool accept(String s)
         {
-            Console.WriteLine("Next string going though the accept() method for NDFA: " + s);
+            //Console.WriteLine("Next string going though the accept() method for NDFA: " + s);
 
             //checks if input string contains values from alphabet
             foreach (char c in s)
@@ -98,19 +98,19 @@ namespace formele_methoden
                         if (c == Transition<T>.EPSILON)
                         {
                             nextStates.Add(transition.toState);
-                            //Console.WriteLine("Test1");
+                            ////Console.WriteLine("Test1");
                             nextStates.UnionWith(getNextStatesEpsilon(transition.toState.ToString(), Transition<T>.EPSILON, isUsed));
                         }
                         else
                         {
-                            //Console.WriteLine("Test2");
+                            ////Console.WriteLine("Test2");
                             nextStates.UnionWith(getNextStatesEpsilon(transition.toState.ToString(), c, isUsed));
                         }
                     }
                     else if (c == transition.symbol)
                     {
                         nextStates.Add(transition.toState);
-                        //Console.WriteLine("Test3");
+                        ////Console.WriteLine("Test3");
                         isUsed = true;
                         nextStates.UnionWith(getNextStatesEpsilon(transition.toState.ToString(), Transition<T>.EPSILON, isUsed));
                     }
