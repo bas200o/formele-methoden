@@ -9,12 +9,15 @@ namespace formele_methoden
         {
             Demo demo = new Demo();
 
-            RegEx regEx = demo.demoRegex();
+            // RegEx regEx = demo.demoRegex();
 
-            NDFA<String> nDFA1 = demo.regex2ndfa(regEx);
+            // NDFA<String> nDFA1 = demo.regex2ndfa(regEx);
 
-            DFA<string> dFA = demo.NDFA2DFA(nDFA1);
+            // DFA<string> dFA = demo.NDFA2DFA(nDFA1);
             //DFA<String> miniDFA = demo.minimalize(dFA);
+
+            NDFA<String> ndfa2 = demo.demoNDFA2();
+            demo.NDFA2DFA(ndfa2);
         }
     }
 

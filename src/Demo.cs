@@ -34,8 +34,7 @@ namespace formele_methoden
 
 
         /*
-            Tests the ndfa converter
-            @return returns a NDFA object that can be used to convert to a DFA
+            Generates testing ndfa
         */
         public NDFA<string> demoNDFA1()
         {
@@ -69,6 +68,46 @@ namespace formele_methoden
 
             return nDFA;
         }
+
+        /*
+            Generates testing ndfa
+        */
+        public NDFA<string> demoNDFA2()
+        {
+            NDFA<string> nDFA = new NDFA<string>(2);
+
+            nDFA.addTransition(new Transition<string>("q0", 'a', "q1"));
+            nDFA.addTransition(new Transition<string>("q0", 'a', "q2"));
+            nDFA.addTransition(new Transition<string>("q0", 'b', "q2"));
+            nDFA.addTransition(new Transition<string>("q0", 'a', "q3"));
+            nDFA.addTransition(new Transition<string>("q0", 'b', "q3"));
+
+            nDFA.addTransition(new Transition<string>("q1", 'a', "q1"));
+            nDFA.addTransition(new Transition<string>("q1", 'b', "q3"));
+            nDFA.addTransition(new Transition<string>("q1", 'a', "q2"));
+            nDFA.addTransition(new Transition<string>("q1", 'b', "q2"));
+
+            nDFA.addTransition(new Transition<string>("q2", 'b', "q2"));
+            nDFA.addTransition(new Transition<string>("q2", 'b', "q3"));
+            nDFA.addTransition(new Transition<string>("q2", 'b', "q4"));
+
+            nDFA.addTransition(new Transition<string>("q3", 'a', "q4"));
+            nDFA.addTransition(new Transition<string>("q3", 'b', "q4"));
+            nDFA.addTransition(new Transition<string>("q3", 'b', "q3"));
+
+            nDFA.defineAsStartState("q0");
+            nDFA.defineAsFinalState("q1");
+
+            if (!Directory.Exists("TestGraphs/"))
+            {
+                Directory.CreateDirectory("TestGraphs/");
+            }
+
+            nDFA.generateGraph("TestGraphs/NDFA2.dot");
+
+            return nDFA;
+        }
+
 
         public DFA<string> NDFA2DFA(NDFA<String> nDFA)
         {
