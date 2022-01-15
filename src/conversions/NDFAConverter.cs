@@ -25,21 +25,22 @@ namespace formele_methoden
                 {
                     newStates.Add(state);
                 }
-               
+
                 foreach (var symbol in ndfa.alphabet)
                 {
-                    
+
                     //var specificTrans = ndfa.getTransitions(state, symbol);
                     var toStates = ndfa.getNextStatesEpsilon(state, symbol, false);
                     string tempString = "";
                     foreach (string s in toStates)
                     {
-                        tempString += s; 
+                        tempString += s;
                     }
                     if (!tempString.Equals(""))
                     {
                         newStates.Add(tempString);
-                    } else
+                    }
+                    else
                     {
                         newStates.Add("Fuik");
                     }
@@ -56,12 +57,12 @@ namespace formele_methoden
                     string[] fromStates = state.Split('q');
                     List<string> toStatesList = new List<string>();
 
-                        for (int i = 1; i < fromStates.Length; i++)
-                        {
-                            toStatesList.AddRange(ndfa.getNextStatesEpsilon("q" + fromStates[i], symbol, false));
-                        }
+                    for (int i = 1; i < fromStates.Length; i++)
+                    {
+                        toStatesList.AddRange(ndfa.getNextStatesEpsilon("q" + fromStates[i], symbol, false));
+                    }
 
-                    
+
 
                     toStatesList = toStatesList.Distinct().ToList();
 
@@ -77,7 +78,7 @@ namespace formele_methoden
                     {
                         tempDFA.transitions.Add(new Transition<string>(state, symbol, tempToState));
                     }
-                   
+
                 }
             }
 
@@ -101,7 +102,38 @@ namespace formele_methoden
                 }
             }
 
-            return tempDFA;
+            bool drawFuik = false;
+
+            foreach (var transition in tempDFA.transitions)
+            {
+                if (transition.toState.Equals("Fuik") && !transition.fromState.Equals("Fuik"))
+                {
+                    drawFuik = true;
+                }
+            }
+
+            var removeDFA = tempDFA;
+
+            //remove fuik
+            if (!drawFuik)
+            {
+                foreach (var transition in tempDFA.transitions)
+                {
+                    if (transition.fromState.Equals("Fuik"))
+                    {
+                        removeDFA.transitions.Remove(transition);
+                    }
+                }
+                // foreach (var state in tempDFA.states)
+                // {
+                //     // if (state.Equals("Fuik"))
+                //     // {
+                //     //     removeDFA.states.Remove(state);
+                //     // }
+                // }
+            }
+
+            return removeDFA;
         }
     }
 }
