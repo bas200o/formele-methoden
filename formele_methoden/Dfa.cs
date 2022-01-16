@@ -20,15 +20,6 @@ namespace formele_methoden
             endStates = new List<string>();
 
             createDfa(givenNdfa);
-            //List<string> reachableStates = givenNdfa.getConnectionsEpsilon("q0", "b");
-
-            //Console.WriteLine("----- REACHABLE -----");
-            //foreach(string state in reachableStates)
-            //{
-            //    Console.WriteLine(state);
-            //}
-            //Console.WriteLine("----- END -----");
-
         }
 
         private string getCombinationOfList(List<string> givenList)
@@ -124,9 +115,7 @@ namespace formele_methoden
 
                         // Check for each node in the collection which transitions they have, and add it to their list
                         foreach(string s in stringsToCheck)
-                        {
-                            //string optionACleaned = getCombinationOfList(givenNdfa.getConnections(s, "a"));
-                            //string optionBCleaned = getCombinationOfList(givenNdfa.getConnections(s, "b"));                            
+                        {                          
                             string optionACleaned = getCombinationOfList(givenNdfa.getConnectionsEpsilon(s, "a"));
                             string optionBCleaned = getCombinationOfList(givenNdfa.getConnectionsEpsilon(s, "b"));
 

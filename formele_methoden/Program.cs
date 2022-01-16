@@ -9,10 +9,41 @@ namespace Formele_Methoden
         {
             //ndfaDemoOne();
             //ndfaDemoTwo();
-            ndfaDemoEpsilon();
+            //ndfaDemoEpsilonSimple();
+            ndfaDemoEpsilonSheetFour();
         }
 
-        private static void ndfaDemoEpsilon()
+        private static void ndfaDemoEpsilonSheetFour()
+        {
+            Ndfa testNdfa = new Ndfa();
+            testNdfa.addTransition(new CustomTransition("q1", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q1", "q2", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q2", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q2", "q1", "b"));
+            testNdfa.addTransition(new CustomTransition("q2", "q3", "b"));
+            testNdfa.addTransition(new CustomTransition("q2", "q3", "ε"));
+
+            testNdfa.addTransition(new CustomTransition("q3", "q5", "a"));
+            testNdfa.addTransition(new CustomTransition("q3", "q5", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q4", "q2", "ε"));
+            testNdfa.addTransition(new CustomTransition("q4", "q3", "a"));
+
+            testNdfa.addTransition(new CustomTransition("q5", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q5", "q1", "b"));
+
+            testNdfa.markStartState("q1");
+            testNdfa.markEndState("q4");
+
+            //testNdfa.printTransitions();
+            testNdfa.drawGraph("graph_1", "../../../graphs/graph_1.dot");
+
+
+            Dfa testDfa = new Dfa(testNdfa);
+            testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
+        }
+        private static void ndfaDemoEpsilonSimple()
         {
             Ndfa testNdfa = new Ndfa();
             testNdfa.addTransition(new CustomTransition("q0", "q1", "ε"));

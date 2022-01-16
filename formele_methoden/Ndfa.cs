@@ -24,23 +24,6 @@ namespace formele_methoden
             endStates = new List<string>();
         }
 
-        public List<string> getConnections(string state, string symbol)
-        {
-            List<string> toReturn = new List<string>();
-
-            foreach (var transition in transitions)
-            {
-                if(transition.getOrigin() == state && transition.getSymbol() == symbol)
-                {
-                    // TODO: Implement epsilon support
-                    toReturn.Add(transition.getDestination());
-                }
-            }
-
-            return toReturn;
-        }
-
-        // TODO: implement check to see whether the symbol has been used?
         public List<string> getConnectionsEpsilon(string state, string symbol)
         {
             HashSet<string> nextStates = new HashSet<string>();
