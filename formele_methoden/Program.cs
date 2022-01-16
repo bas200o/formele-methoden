@@ -7,8 +7,29 @@ namespace Formele_Methoden
     {
         static void Main(string[] args)
         {
-            ndfaDemoOne();
+            //ndfaDemoOne();
             //ndfaDemoTwo();
+            ndfaDemoEpsilon();
+        }
+
+        private static void ndfaDemoEpsilon()
+        {
+            Ndfa testNdfa = new Ndfa();
+            testNdfa.addTransition(new CustomTransition("q0", "q1", "ε"));
+            testNdfa.addTransition(new CustomTransition("q0", "q0", "a"));
+
+            testNdfa.addTransition(new CustomTransition("q1", "q2", "b"));
+            testNdfa.addTransition(new CustomTransition("q1", "q2", "ε"));
+
+            testNdfa.markStartState("q0");
+            testNdfa.markEndState("q2");
+
+            //testNdfa.printTransitions();
+            testNdfa.drawGraph("graph_1", "../../../graphs/graph_1.dot");
+
+
+            Dfa testDfa = new Dfa(testNdfa);
+            testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
         }
 
         private static void ndfaDemoTwo()

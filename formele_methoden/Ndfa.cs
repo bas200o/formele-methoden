@@ -40,6 +40,47 @@ namespace formele_methoden
             return toReturn;
         }
 
+        // TODO: implement check to see whether the symbol has been used?
+        public List<string> getConnectionsEpsilon(string state, string symbol)
+        {
+            HashSet<string> nextStates = new HashSet<string>();
+
+            // Loop through all the transitions of the ndfa
+            foreach(var transition in transitions)
+            {
+                // Check whether the transition came from the state which was specified
+                if(transition.getOrigin() == state)
+                {
+                    // Check whether the transition symbol was an epsilon
+                    if(transition.getSymbol() == "ε")
+                    {
+                        // Check whether the given symbol was an epsilon
+                        if (symbol == "ε")
+                        {
+                            nextStates.Add(transition.getDestination());
+
+                            // Add to the nextStates recursively
+                            nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                        }
+                        else
+                        {
+                            nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                        }
+                    } 
+                    // Check whether the synbol matches the given symbol
+                    else if (symbol == transition.getSymbol())
+                    {
+                        nextStates.Add(transition.getDestination());
+
+                        // Add to the nextStates recursively
+                        nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                    }
+                }
+            }
+            List<string> toReturn = nextStates.ToList(); 
+            return toReturn;
+        }
+
         public List<CustomTransition> getTransitions()
         {
             return this.transitions;

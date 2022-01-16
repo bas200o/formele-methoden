@@ -2,20 +2,9 @@ digraph graph_1
 {
 	rankdir =  LR; node_start [label = "", shape = none]; 
 	node_start ->  q0; 
-	q1 [label =q1, shape = doublecircle]; 
-	q0 -> q1 [label=a]; 
-	q0 -> q2 [label=a]; 
-	q0 -> q2 [label=b]; 
-	q0 -> q3 [label=a]; 
-	q0 -> q3 [label=b]; 
-	q1 -> q1 [label=a]; 
-	q1 -> q2 [label=a]; 
+	q2 [label =q2, shape = doublecircle]; 
+	q0 -> q1 [label=ε]; 
+	q0 -> q0 [label=a]; 
 	q1 -> q2 [label=b]; 
-	q1 -> q3 [label=b]; 
-	q2 -> q2 [label=b]; 
-	q2 -> q4 [label=b]; 
-	q2 -> q3 [label=b]; 
-	q3 -> q3 [label=b]; 
-	q3 -> q4 [label=a]; 
-	q3 -> q4 [label=b]; 
+	q1 -> q2 [label=ε]; 
 }
