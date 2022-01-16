@@ -1,4 +1,12 @@
 digraph graph_2
 {
 	rankdir =  LR; node_start [label = "", shape = none]; 
+	q0 -> q0q1 [label=a]; 
+	q0 -> Fuik [label=b]; 
+	q0q1 -> q0q1 [label=a]; 
+	q0q1 -> q2 [label=b]; 
+	Fuik -> Fuik [label=a]; 
+	Fuik -> Fuik [label=b]; 
+	q2 -> Fuik [label=a]; 
+	q2 -> Fuik [label=b]; 
 }

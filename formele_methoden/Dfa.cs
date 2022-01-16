@@ -93,7 +93,6 @@ namespace formele_methoden
                 Console.WriteLine("This feature has not been implemented yet!");
             }
 
-            // TODO: Fix q0q1 and Fuik state somehow being linked? Recursie ipv dict list?
             bool continueFirstLoop = true;
             while(continueFirstLoop)
             {
@@ -101,16 +100,19 @@ namespace formele_methoden
 
                 foreach (string node in dictDfa.Keys.ToList())
                 {
+                    // Check whether a transition has not been initialized fully yet
                     if(dictDfa[node][0].Equals("N/A"))
                     {
+                        // Prevent the loop from breaking, as new values could be added
                         continueFirstLoop = true;
 
-                        Console.WriteLine("\n\nCurrent entry: " + node);
+                        // Get a list containing all the node-strings of the current node-collection
                         List<string> stringsToCheck = getListFromCombination(node);
 
                         List<string> optionsA = new List<string>();
                         List<string> optionsB = new List<string>();
 
+                        // Check for each node in the collection which transitions they have, and add it to their list
                         foreach(string s in stringsToCheck)
                         {
                             string optionACleaned = getCombinationOfList(givenNdfa.getConnections(s, "a"));
@@ -120,56 +122,36 @@ namespace formele_methoden
                             optionsB.Add(optionBCleaned);
                         }
 
-                        Console.WriteLine("----- B EFORE ------");
-                        foreach (string key in dictDfa.Keys)
-                        {
-                            Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
-                        }
-
+                        // Append all the sorted node-strings
                         string optionsAMerged = getCombinationOfList(optionsA);
                         string optionsBMerged = getCombinationOfList(optionsB);
 
-
+                        // Set the value of the note to the possible nodes-collection
                         dictDfa[node][0] = optionsAMerged;
                         dictDfa[node][1] = optionsBMerged;
 
-                        Console.WriteLine("Options: " + optionsAMerged + " , " + optionsBMerged);
-
-                        Console.WriteLine("----- B AFTER ------");
-                        foreach(string key in dictDfa.Keys)
-                        {
-                            Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
-                        }
-
-                        Console.WriteLine("A merged: " + optionsAMerged + "\nB merged: " + optionsBMerged);
-
+                        // Add new node-collections to the dictionary
                         string[] emptyArray = { "N/A", "N/A" };
                         if(!dictDfa.ContainsKey(optionsAMerged))
                         {
-                            Console.WriteLine("Added option a merged to list");
-                            dictDfa.Add(optionsAMerged, emptyArray);
+                            dictDfa.Add(optionsAMerged, (string[])emptyArray.Clone());
                         }
 
                         if (!dictDfa.ContainsKey(optionsBMerged))
                         {
-                            Console.WriteLine("Added option b merged to list");
-                            dictDfa.Add(optionsBMerged, emptyArray);
+                            dictDfa.Add(optionsBMerged, (string[])emptyArray.Clone());
                         }
                     }
                 }
             }
 
-            //// Force edit the key:value pair for the fuik to loop back
-            //string[] fuikArr = { "Fuik", "Fuik"};
-            //dictDfa["Fuik"] = fuikArr;
+            foreach (string key in dictDfa.Keys)
+            {
+                this.transitions.Add(new CustomTransition(key, dictDfa[key][0], "a"));
+                this.transitions.Add(new CustomTransition(key, dictDfa[key][1], "b"));
 
-            //foreach (string key in dictDfa.Keys)
-            //{
-            //    this.transitions.Add(new CustomTransition(key, dictDfa[key][0], "a"));
-            //    this.transitions.Add(new CustomTransition(key, dictDfa[key][1], "b"));
-
-            //    Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
-            //}
+                Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
+            }
         }
 
         public void addTransition(CustomTransition t)
