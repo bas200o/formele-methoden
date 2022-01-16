@@ -7,8 +7,8 @@ namespace Formele_Methoden
     {
         static void Main(string[] args)
         {
-            //ndfaDemoOne();
-            ndfaDemoTwo();
+            ndfaDemoOne();
+            //ndfaDemoTwo();
         }
 
         private static void ndfaDemoTwo()

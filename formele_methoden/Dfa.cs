@@ -37,6 +37,7 @@ namespace formele_methoden
 
             // Create a string array, containing only the numbers
             var stringArr = combination.Split('q');
+            stringArr = stringArr.Distinct().ToArray();
             Array.Sort(stringArr);
 
             // Append the sorted array
