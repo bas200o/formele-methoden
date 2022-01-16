@@ -81,18 +81,13 @@ namespace formele_methoden
         {
             Dictionary<string, string[]> dictDfa = new Dictionary<string, string[]>();
 
+            // TODO: Test multiple start states!
+
             // Add the start node(s) to the dfa dictionary to begin the table
             List<string> startNodes = givenNdfa.getStartStates();
-            if(startNodes.Count == 1)
-            {
-                string[] emptyArr = { "N/A", "N/A" };
-                dictDfa.Add(startNodes[0], emptyArr);
-            } 
-            else
-            {
-                // TODO: Implement multiple start states
-                Console.WriteLine("This feature has not been implemented yet!");
-            }
+            string combination = getCombinationOfList(startNodes);
+            string[] emptyArr = { "N/A", "N/A" };
+            dictDfa.Add(combination, emptyArr);
 
             bool continueFirstLoop = true;
             while(continueFirstLoop)

@@ -2,15 +2,19 @@ digraph graph_2
 {
 	rankdir =  LR; node_start [label = "", shape = none]; 
 	q1 -> q2q3q4 [label=a]; 
-	q1 -> q2q3 [label=b]; 
-	q2q3q4 -> q2q3q4q5 [label=a]; 
-	q2q3q4 -> q1q3q5 [label=b]; 
-	q2q3 -> q2q3q4q5 [label=a]; 
-	q2q3 -> q1q3q5 [label=b]; 
-	q2q3q4q5 -> q2q3q4q5 [label=a]; 
-	q2q3q4q5 -> q1q3q5 [label=b]; 
-	q1q3q5 -> q2q3q4q5 [label=a]; 
-	q1q3q5 -> q1q2q3q5 [label=b]; 
-	q1q2q3q5 -> q2q3q4q5 [label=a]; 
-	q1q2q3q5 -> q1q2q3q5 [label=b]; 
+	q1 -> q4 [label=b]; 
+	q2q3q4 -> q3q4q5 [label=a]; 
+	q2q3q4 -> q1q4q5 [label=b]; 
+	q4 -> q5 [label=a]; 
+	q4 -> Fuik [label=b]; 
+	q3q4q5 -> q3q4q5 [label=a]; 
+	q3q4q5 -> q5 [label=b]; 
+	q1q4q5 -> q2q3q4q5 [label=a]; 
+	q1q4q5 -> q4 [label=b]; 
+	q5 -> q4 [label=a]; 
+	q5 -> Fuik [label=b]; 
+	Fuik -> Fuik [label=a]; 
+	Fuik -> Fuik [label=b]; 
+	q2q3q4q5 -> q3q4q5 [label=a]; 
+	q2q3q4q5 -> q1q4q5 [label=b]; 
 }
