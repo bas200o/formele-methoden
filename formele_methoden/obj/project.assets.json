@@ -10,15 +10,6 @@
         "runtime": {
           "lib/netstandard2.0/csdot.dll": {}
         }
-      },
-      "Rubjerg.Graphviz/1.0.8": {
-        "type": "package",
-        "compile": {
-          "lib/net48/Rubjerg.Graphviz.dll": {}
-        },
-        "runtime": {
-          "lib/net48/Rubjerg.Graphviz.dll": {}
-        }
       }
     }
   },
@@ -36,78 +27,10 @@
         "lib/net461/csdot.dll",
         "lib/netstandard2.0/csdot.dll"
       ]
-    },
-    "Rubjerg.Graphviz/1.0.8": {
-      "sha512": "Kb/dLtn/ZEHWTmWU5Q2dvrJZvSgIAmtW4BSX1NIzq/DfL9QCd5jOaNcQ3r1zYzApKTisnyinMzVhtEsDVsp3fg==",
-      "type": "package",
-      "path": "rubjerg.graphviz/1.0.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "content/GraphvizWrapper.dll",
-        "content/GraphvizWrapper.exp",
-        "content/GraphvizWrapper.lib",
-        "content/GraphvizWrapper.pdb",
-        "content/Pathplan.dll",
-        "content/cairo.dll",
-        "content/cdt.dll",
-        "content/cgraph.dll",
-        "content/config6",
-        "content/expat.dll",
-        "content/fontconfig.dll",
-        "content/getopt.dll",
-        "content/glib-2.dll",
-        "content/gobject-2.dll",
-        "content/gvc.dll",
-        "content/gvplugin_core.dll",
-        "content/gvplugin_dot_layout.dll",
-        "content/gvplugin_gdiplus.dll",
-        "content/gvplugin_neato_layout.dll",
-        "content/gvplugin_pango.dll",
-        "content/libharfbuzz-0.dll",
-        "content/pango-1.dll",
-        "content/pangocairo-1.dll",
-        "content/pangoft2-1.dll",
-        "content/pangowin32-1.dll",
-        "content/pixman-1.dll",
-        "content/xdot.dll",
-        "contentFiles/any/net48/GraphvizWrapper.dll",
-        "contentFiles/any/net48/GraphvizWrapper.exp",
-        "contentFiles/any/net48/GraphvizWrapper.lib",
-        "contentFiles/any/net48/GraphvizWrapper.pdb",
-        "contentFiles/any/net48/Pathplan.dll",
-        "contentFiles/any/net48/cairo.dll",
-        "contentFiles/any/net48/cdt.dll",
-        "contentFiles/any/net48/cgraph.dll",
-        "contentFiles/any/net48/config6",
-        "contentFiles/any/net48/expat.dll",
-        "contentFiles/any/net48/fontconfig.dll",
-        "contentFiles/any/net48/getopt.dll",
-        "contentFiles/any/net48/glib-2.dll",
-        "contentFiles/any/net48/gobject-2.dll",
-        "contentFiles/any/net48/gvc.dll",
-        "contentFiles/any/net48/gvplugin_core.dll",
-        "contentFiles/any/net48/gvplugin_dot_layout.dll",
-        "contentFiles/any/net48/gvplugin_gdiplus.dll",
-        "contentFiles/any/net48/gvplugin_neato_layout.dll",
-        "contentFiles/any/net48/gvplugin_pango.dll",
-        "contentFiles/any/net48/libharfbuzz-0.dll",
-        "contentFiles/any/net48/pango-1.dll",
-        "contentFiles/any/net48/pangocairo-1.dll",
-        "contentFiles/any/net48/pangoft2-1.dll",
-        "contentFiles/any/net48/pangowin32-1.dll",
-        "contentFiles/any/net48/pixman-1.dll",
-        "contentFiles/any/net48/xdot.dll",
-        "lib/net48/Rubjerg.Graphviz.dll",
-        "rubjerg.graphviz.1.0.8.nupkg.sha512",
-        "rubjerg.graphviz.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Rubjerg.Graphviz >= 1.0.8",
       "csdot >= 2.0.1"
     ]
   },
@@ -150,10 +73,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "Rubjerg.Graphviz": {
-            "target": "Package",
-            "version": "[1.0.8, )"
-          },
           "csdot": {
             "target": "Package",
             "version": "[2.0.1, )"
@@ -177,17 +96,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Rubjerg.Graphviz 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Rubjerg.Graphviz",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

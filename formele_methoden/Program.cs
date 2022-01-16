@@ -7,6 +7,12 @@ namespace Formele_Methoden
     {
         static void Main(string[] args)
         {
+            //ndfaDemoOne();
+            ndfaDemoTwo();
+        }
+
+        private static void ndfaDemoTwo()
+        {
             Ndfa testNdfa = new Ndfa();
             testNdfa.addTransition(new CustomTransition("q0", "q1", "a"));
             testNdfa.addTransition(new CustomTransition("q0", "q0", "a"));
@@ -18,6 +24,7 @@ namespace Formele_Methoden
 
             //testNdfa.printTransitions();
             testNdfa.drawGraph("graph_1", "../../../graphs/graph_1.dot");
+
 
             Dfa testDfa = new Dfa(testNdfa);
             testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
@@ -50,6 +57,9 @@ namespace Formele_Methoden
 
             //testNdfa.printTransitions();
             testNdfa.drawGraph("graph_1", "../../../graphs/graph_1.dot");
+
+            Dfa testDfa = new Dfa(testNdfa);
+            testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
         }
     }
 }

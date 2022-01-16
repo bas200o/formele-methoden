@@ -1,22 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "H2/EL2y3BEdBO55evz5Q5qFxtnGlhUObQxP1uiEy109B+rQb27wfLVHoOhBoTgYLBGqDsWqZggNxQiC4dWbiJA==",
+  "dgSpecHash": "s3C6vTBSIQ0UV8FZNm3azCPl8Sos66/LOS9SrGZF4orTvGHv1JFMqbecUGOay2wm2AaUi1jyDw+hykNKSI7OXg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Cinque\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512",
-    "C:\\Users\\Cinque\\.nuget\\packages\\rubjerg.graphviz\\1.0.8\\rubjerg.graphviz.1.0.8.nupkg.sha512"
+    "C:\\Users\\Cinque\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Rubjerg.Graphviz 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Rubjerg.Graphviz",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

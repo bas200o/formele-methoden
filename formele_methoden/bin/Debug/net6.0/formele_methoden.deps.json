@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "formele_methoden/1.0.0": {
         "dependencies": {
-          "Rubjerg.Graphviz": "1.0.8",
           "csdot": "2.0.1"
         },
         "runtime": {
@@ -20,14 +19,6 @@
           "lib/netstandard2.0/csdot.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Rubjerg.Graphviz/1.0.8": {
-        "runtime": {
-          "lib/net48/Rubjerg.Graphviz.dll": {
-            "assemblyVersion": "1.0.8.0",
-            "fileVersion": "1.0.8.0"
           }
         }
       }
@@ -45,13 +36,6 @@
       "sha512": "sha512-lStsF4GyhiNI4haiMPl4oRLiwA/GiN2051lciUPFZgCyuQ/LIUh6s2XA9UqoACHiweM0KW2jf0P/0p9i++a+dQ==",
       "path": "csdot/2.0.1",
       "hashPath": "csdot.2.0.1.nupkg.sha512"
-    },
-    "Rubjerg.Graphviz/1.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Kb/dLtn/ZEHWTmWU5Q2dvrJZvSgIAmtW4BSX1NIzq/DfL9QCd5jOaNcQ3r1zYzApKTisnyinMzVhtEsDVsp3fg==",
-      "path": "rubjerg.graphviz/1.0.8",
-      "hashPath": "rubjerg.graphviz.1.0.8.nupkg.sha512"
     }
   }
 }
