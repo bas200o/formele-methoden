@@ -13,10 +13,23 @@ namespace Formele_Methoden
         //TODO: Clean up / work out examples and make proper demo class
         static void Main(string[] args)
         {
+            
+            regexDemo();
             //ndfaDemoOne();
             //ndfaDemoTwo();
             //ndfaDemoEpsilonSimple();
-            ndfaDemoEpsilonTwo();
+            //ndfaDemoEpsilonTwo();
+
+        }
+
+        public static void regexDemo()
+        {
+            Console.WriteLine("regex test");
+
+            Regex r = new Regex("(a|b)+(a)*(a|b)");
+            Ndfa ndfa = r.re2nfa();
+            
+            ndfa.drawGraph("graph_1", "../graphs/regextest.dot");
         }
 
         private static void ndfaDemoEpsilonSheetFour()

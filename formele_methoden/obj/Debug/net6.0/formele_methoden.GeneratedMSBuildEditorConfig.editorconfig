@@ -7,4 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = formele_methoden
-build_property.ProjectDir = C:\Users\Cinque\Documents\projects\formele-methoden\formele_methoden\
+build_property.ProjectDir = /home/bas/Documents/git/formele-methoden/formele_methoden/
