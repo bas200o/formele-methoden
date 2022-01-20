@@ -5,6 +5,12 @@ namespace Formele_Methoden
 {
     class Program
     {
+        //TODO: RegEx -> NDFA
+        //TODO: Check recursive function in ndfa -> dfa
+        //TODO: Implement reverse of dfa
+        //TODO: Implement minimalisation -- toDfa(reverse(toDfa(reverse(dfa))))
+        //TODO: Check for multiple start states
+        //TODO: Clean up / work out examples and make proper demo class
         static void Main(string[] args)
         {
             //ndfaDemoOne();

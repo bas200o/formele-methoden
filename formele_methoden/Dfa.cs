@@ -81,8 +81,6 @@ namespace formele_methoden
         {
             Dictionary<string, string[]> dictDfa = new Dictionary<string, string[]>();
 
-            // TODO: Test multiple start states!
-
             // Add the start node(s) to the dfa dictionary to begin the table
             List<string> startNodes = givenNdfa.getStartStates();
             string combination = getCombinationOfList(startNodes);
