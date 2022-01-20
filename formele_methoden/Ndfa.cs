@@ -74,6 +74,11 @@ namespace formele_methoden
             return this.startStates;
         }
 
+        public List<string> getEndStates()
+        {
+            return this.endStates;
+        }
+
         public void addTransition(CustomTransition t)
         {
             transitions.Add(t);
