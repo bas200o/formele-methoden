@@ -16,7 +16,33 @@ namespace Formele_Methoden
             //ndfaDemoOne();
             //ndfaDemoTwo();
             //ndfaDemoEpsilonSimple();
-            ndfaDemoEpsilonTwo();
+            //ndfaDemoEpsilonTwo();
+
+            dfaReverseExample();
+        }
+
+        private static void dfaReverseExample()
+        {
+            Ndfa testNdfa = new Ndfa();
+            testNdfa.addTransition(new CustomTransition("q0", "q1", "a"));
+            testNdfa.addTransition(new CustomTransition("q0", "q2", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q1", "q1", "a"));
+            testNdfa.addTransition(new CustomTransition("q1", "q1", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q2", "q2", "a"));
+            testNdfa.addTransition(new CustomTransition("q2", "q2", "b"));
+
+            testNdfa.markStartState("q0");
+            testNdfa.markEndState("q1");
+
+            testNdfa.drawGraph("graph_1", "../../../graphs/graph_1.dot");
+
+            Dfa testDfa = new Dfa(testNdfa);
+            testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
+
+            Ndfa reversedNdfa = testDfa.getReverse();
+            reversedNdfa.drawGraph("graph_3", "../../../graphs/graph_3.dot");
         }
 
         private static void ndfaDemoEpsilonSheetFour()
@@ -49,6 +75,7 @@ namespace Formele_Methoden
             Dfa testDfa = new Dfa(testNdfa);
             testDfa.drawGraph("graph_2", "../../../graphs/graph_2.dot");
         }
+        
         private static void ndfaDemoEpsilonSimple()
         {
             Ndfa testNdfa = new Ndfa();
