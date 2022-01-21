@@ -35,13 +35,25 @@ namespace formele_methoden
             Ndfa toReturn = new Ndfa();
             List<CustomTransition> newTransitions = new List<CustomTransition>();
 
-            // Step 1. Connect all the end nodes to a singular, final state
-            foreach(string endState in this.endStates)
+            // Check the amount of nodes currently available
+            foreach (CustomTransition trans in this.transitions)
             {
-                this.transitions.Add(new CustomTransition(endState, "END", "ε"));
+                // Add all the nodes to the list, tracking the nodes
+                allNodes.Add(trans.getDestination());
+                allNodes.Add(trans.getOrigin());
             }
+
+            allNodes = allNodes.Distinct().ToList();
+            string endNodeName = "q" + allNodes.Count;
+
+            // Step 1. Connect all the end nodes to a singular, final state
+            foreach (string endState in this.endStates)
+            {
+                this.transitions.Add(new CustomTransition(endState, endNodeName, "ε"));
+            }
+
             // Clear the endstates list, and re-add the 'true' end state
-            this.endStates = new List<string> {"END"};
+            this.endStates = new List<string> { endNodeName };
 
             // Step 2. Start state becomes the end state and the end state becomes the start state
             toReturn.markStartState(this.endStates[0]);
@@ -52,13 +64,7 @@ namespace formele_methoden
             {
                 CustomTransition toAdd = new CustomTransition(trans.getDestination(), trans.getOrigin(), trans.getSymbol());
                 newTransitions.Add(toAdd);
-
-                // Add all the nodes to the list, tracking the nodes
-                allNodes.Add(trans.getDestination());
-                allNodes.Add(trans.getOrigin());
             }
-
-            allNodes = allNodes.Distinct().ToList();
 
             // Step 4. Remove unreachable nodes
             foreach (string node in allNodes)
