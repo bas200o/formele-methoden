@@ -13,82 +13,123 @@ namespace formele_methoden
 {
     public class Ndfa
     {
+        // Lists which will be used to keep track of the current transitions, start and end states
         private List<CustomTransition> transitions;
         private List<string> startStates;
         private List<string> endStates;
 
         public Ndfa()
         {
+            // Initialize the lists
             transitions = new List<CustomTransition>();
             startStates = new List<string>();
             endStates = new List<string>();
         }
 
+        /// <summary>
+        /// A method which can be used to determine which states are reachable from a given state, using a specific character
+        /// </summary>
+        /// <param name="state">The original state</param>
+        /// <param name="symbol">The symbol which can be used</param>
+        /// <param name="isUsed">A boolean which tracks whether the symbol has been used, specifically for the recursive part</param>
+        /// <returns>A list of strings, containing nodes which are reachable</returns>
         public List<string> getNextStates(string state, string symbol, bool isUsed)
         {
             HashSet<string> nextStates = new HashSet<string>();
 
+            // Loop through all the transitions
             foreach (CustomTransition transition in transitions)
             {
+                // Check whether the current transition's origin is the given state
                 if (transition.getOrigin().Equals(state))
                 {
+                    // Check whether the current transition's symbol is an epsilon
                     if (transition.getSymbol() == "ε")
                     {
                         if (symbol == "ε")
                         {
+                            // If the originally given symbol was an epsilon, add the transition to the list, and call the method again
                             nextStates.Add(transition.getDestination());
                             nextStates.UnionWith(getNextStates(transition.getDestination(), "ε", isUsed));
                         }
                         else
                         {
+                            // Call the method again
                             nextStates.UnionWith(getNextStates(transition.getDestination(), symbol, isUsed));
                         }
                     }
                     else if (symbol == transition.getSymbol())
                     {
+                        // If the given symbol matches the current transition's symbol, add the transitions destination node to the list
                         nextStates.Add(transition.getDestination());
+
+                        // Update the boolean to ensure that only epsilon values will be allowed after this point
                         isUsed = true;
+
+                        // Call the method again
                         nextStates.UnionWith(getNextStates(transition.getDestination(), "ε", isUsed));
                     }
                 }
 
             }
 
+            // Convert the states to a list
             List<string> toReturn = nextStates.ToList();
 
+            // Return the list containing the reachable states
             return toReturn;
         }
 
-        public List<CustomTransition> getTransitions()
-        {
-            return this.transitions;
-        }
-
+        /// <summary>
+        /// A function which can be used to get the current start states
+        /// </summary>
+        /// <returns>A list, containing the strings of all the start states</returns>
         public List<string> getStartStates()
         {
             return this.startStates;
         }
 
+        /// <summary>
+        /// A function which can be used to get the end states
+        /// </summary>
+        /// <returns>A list, containing the strings of all the end states</returns>
         public List<string> getEndStates()
         {
             return this.endStates;
         }
 
+        /// <summary>
+        /// A function which can be used to add a transition to the list with transitions
+        /// </summary>
+        /// <param name="t">The transition which should be added</param>
         public void addTransition(CustomTransition t)
         {
             transitions.Add(t);
         }
 
+        /// <summary>
+        /// A function which can be used to mark a specific state as a start state
+        /// </summary>
+        /// <param name="state">The name of the node which should be marked as a start state</param>
         public void markStartState(string state)
         {
             startStates.Add(state);
         }
 
+        /// <summary>
+        /// A function which can be used to mark a specific state as an end state
+        /// </summary>
+        /// <param name="state">The name of the node which should be marked as an end state</param>
         public void markEndState(string state)
         {
             endStates.Add(state);
         }
 
+        /// <summary>
+        /// A function which can be used to create a graphviz file, displaying the current NDFA
+        /// </summary>
+        /// <param name="name">The title of the graph</param>
+        /// <param name="path">The path which should be used to save the dot file</param>
         public void drawGraph(string name, string path)
         {
             DotDocument dotDocument = new DotDocument();
@@ -149,6 +190,9 @@ namespace formele_methoden
             //Console.WriteLine("Graph has been drawn");
         }
 
+        /// <summary>
+        /// A function which can be used to print all the transitions within the current NDFA
+        /// </summary>
         public void printTransitions()
         {
             foreach (CustomTransition t in transitions)

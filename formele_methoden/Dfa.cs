@@ -9,25 +9,38 @@ namespace formele_methoden
 {
     public class Dfa
     {
+        // Lists which will be used to keep track of the transitions, start and end states
         private List<CustomTransition> transitions;
         private List<string> startStates;
         private List<string> endStates;
 
+        // Lists which will be used to keep track of the start and end states of the given ndfa
         private List<string> ndfaStartStates;
         private List<string> ndfaEndStates;
 
+        /// <summary>
+        /// A function which can be used to initialize a DFA
+        /// </summary>
+        /// <param name="givenNdfa">The NDFA which should be converted to a DFA</param>
         public Dfa(Ndfa givenNdfa)
         {
+            // Initialize the empty variables
             transitions = new List<CustomTransition>();
             startStates = new List<string>();
             endStates = new List<string>();
 
+            // Initialize the start and end states of the NDFA
             ndfaStartStates = givenNdfa.getStartStates();
             ndfaEndStates = givenNdfa.getEndStates();
 
+            // Convert the NDFA to a DFA
             createDfa(givenNdfa);
         }
 
+        /// <summary>
+        /// A function which can be used to get the reverse of a DFA
+        /// </summary>
+        /// <returns>A NDFA object which contains the reversed DFA</returns>
         public Ndfa getReverse()
         {
             // Initialize the variables to initialize the ndfa
@@ -43,6 +56,7 @@ namespace formele_methoden
                 allNodes.Add(trans.getOrigin());
             }
 
+            // Initialize the amount of unique nodes, which will be used to be able to name new states which will be added
             allNodes = allNodes.Distinct().ToList();
             string endNodeName = "q" + allNodes.Count;
 
@@ -55,7 +69,7 @@ namespace formele_methoden
             // Clear the endstates list, and re-add the 'true' end state
             this.endStates = new List<string> { endNodeName };
 
-            // Step 2. Start state becomes the end state and the end state becomes the start state
+            // Step 2. Swap the start and end state
             toReturn.markStartState(this.endStates[0]);
             toReturn.markEndState(this.startStates[0]);
 
@@ -113,6 +127,11 @@ namespace formele_methoden
             return toReturn;
         }
 
+        /// <summary>
+        /// A function which can be used to combine node strings into a new node
+        /// </summary>
+        /// <param name="givenList">The list of nodes</param>
+        /// <returns>A sorted string containing the new combinated node</returns>
         private string getCombinationOfList(List<string> givenList)
         {
             string combination = "";
@@ -150,6 +169,11 @@ namespace formele_methoden
             return v;
         }
 
+        /// <summary>
+        /// A function which can be used to split a combined node into a list of smaller nodes
+        /// </summary>
+        /// <param name="givenString">The combined node string</param>
+        /// <returns>A list of strings, which contains the seperate node of the combined given node</returns>
         private List<string> getListFromCombination(string givenString)
         {
             List<string> toReturn = new List<string>();
@@ -158,16 +182,22 @@ namespace formele_methoden
             var stringArr = givenString.Split('q');
             Array.Sort(stringArr);
 
+            // Add the nodes to the return list
             foreach (string s in stringArr)
             {
                 toReturn.Add("q" + s);
             }
 
+            // Remove the first entry due to it being empty
             toReturn.RemoveAt(0);
           
             return toReturn;
         }
 
+        /// <summary>
+        /// A function which can be used to convert a NDFA to a DFA
+        /// </summary>
+        /// <param name="givenNdfa">The given NDFA</param>
         private void createDfa(Ndfa givenNdfa)
         {
             Dictionary<string, string[]> dictDfa = new Dictionary<string, string[]>();
@@ -236,7 +266,7 @@ namespace formele_methoden
                 this.transitions.Add(new CustomTransition(key, dictDfa[key][0], "a"));
                 this.transitions.Add(new CustomTransition(key, dictDfa[key][1], "b"));
 
-                Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
+                //Console.WriteLine("Node: " + key + " a: " + dictDfa[key][0] + " b: " + dictDfa[key][1]);
             }
 
             // Loop through all the current transitions
@@ -283,21 +313,29 @@ namespace formele_methoden
             this.endStates = this.endStates.Distinct().ToList();
         }
 
-        public void addTransition(CustomTransition t)
-        {
-            transitions.Add(t);
-        }
-
+        /// <summary>
+        /// A function which can be used to mark a node as a start state
+        /// </summary>
+        /// <param name="state">The node which should be marked as a start state</param>
         public void markStartState(string state)
         {
             startStates.Add(state);
         }
 
+        /// <summary>
+        /// A function which can be used to mark a node as an end state
+        /// </summary>
+        /// <param name="state">The node which should be marked as an end state</param>
         public void markEndState(string state)
         {
             endStates.Add(state);
         }
 
+        /// <summary>
+        /// A function which can be used to create a graphviz file, displaying the current NDFA
+        /// </summary>
+        /// <param name="name">The title of the graph</param>
+        /// <param name="path">The path which should be used to save the dot file</param>
         public void drawGraph(string name, string path)
         {
             DotDocument dotDocument = new DotDocument();
@@ -368,6 +406,9 @@ namespace formele_methoden
             //Console.WriteLine("Graph has been drawn");
         }
 
+        /// <summary>
+        /// A function which can be used to print all the transitions within the current NDFA
+        /// </summary>
         public void printTransitions()
         {
             foreach (CustomTransition t in transitions)

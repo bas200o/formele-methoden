@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/bas/Documents/git/formele-methoden/formele_methoden/formele_methoden.csproj": {}
+    "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj": {}
   },
   "projects": {
-    "/home/bas/Documents/git/formele-methoden/formele_methoden/formele_methoden.csproj": {
+    "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bas/Documents/git/formele-methoden/formele_methoden/formele_methoden.csproj",
+        "projectUniqueName": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
         "projectName": "formele_methoden",
-        "projectPath": "/home/bas/Documents/git/formele-methoden/formele_methoden/formele_methoden.csproj",
-        "packagesPath": "/home/bas/.nuget/packages/",
-        "outputPath": "/home/bas/Documents/git/formele-methoden/formele_methoden/obj/",
+        "projectPath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
+        "packagesPath": "C:\\Users\\Cinque\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/bas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Cinque\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,18 +55,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.0, 6.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vsKD0GxflieSQon1DB6ARC+1qDZqTIWLmUi0O+hv/eVCqfYXp4zwu4znIqs9PB2VNcOXBCS0liAHwB6bKGCTxQ==",
+  "dgSpecHash": "s3C6vTBSIQ0UV8FZNm3azCPl8Sos66/LOS9SrGZF4orTvGHv1JFMqbecUGOay2wm2AaUi1jyDw+hykNKSI7OXg==",
   "success": true,
-  "projectFilePath": "/home/bas/Documents/git/formele-methoden/formele_methoden/formele_methoden.csproj",
+  "projectFilePath": "C:\\Users\\Cinque\\Documents\\projects\\formele-methoden\\formele_methoden\\formele_methoden.csproj",
   "expectedPackageFiles": [
-    "/home/bas/.nuget/packages/csdot/2.0.1/csdot.2.0.1.nupkg.sha512",
-    "/home/bas/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+    "C:\\Users\\Cinque\\.nuget\\packages\\csdot\\2.0.1\\csdot.2.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,0 +1,10 @@
+digraph graph_3
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q3; 
+	q0 [label =q0, shape = doublecircle]; 
+	q1 -> q0 [label=a]; 
+	q1 -> q1 [label=a]; 
+	q1 -> q1 [label=b]; 
+	q3 -> q1 [label=ε]; 
+}
