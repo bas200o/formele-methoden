@@ -11,7 +11,7 @@ namespace Formele_Methoden
         static void Main(string[] args)
         {
             
-            regexDemo();
+            regexTest();
             //ndfaDemoOne();
             //ndfaDemoTwo();
             //ndfaDemoEpsilonSimple();
@@ -19,6 +19,15 @@ namespace Formele_Methoden
 
             //dfaMinimalize();
             //testing();
+        }
+
+
+        private static Ndfa regexTest()
+        {
+            Regex r = new Regex("(a|b)+(b)*(a|b)");
+            Ndfa ndfa = r.re2nfa();
+            ndfa.drawGraph("regexNDFA", "../../../graphs/ndfafromre.dot");
+            return ndfa;
         }
 
         private static void testing()
