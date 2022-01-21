@@ -12,6 +12,10 @@ namespace formele_methoden
         public String firstnode = null;
         public String finalNode = null;
 
+        /**
+        Bridge stuct serves to Link 2 nodes together.
+        Comparable to the CustomTransition class.
+        */
         public struct Bridge
         {
             public string startnode { get; }
@@ -24,33 +28,43 @@ namespace formele_methoden
                 endnode = e;
                 key = k;
             }
-
         }
 
+        // Default constructor
         public Regex()
         {
             this._regex = "(a|b)*";
         }
 
+        // Constructer with Custom regex string
         public Regex(string reg)
         {
             this._regex = reg;
         }
 
+        // Calls the class variable for regex
         public Ndfa re2nfa()
         {
             return re2nfa(this._regex);
         }
 
-
+        /// <summary>
+        /// Converts regex string to a NDFA object.
+        /// supports all lowercase letter alphabet
+        /// </summary>
+        /// <param name="regex">Regex string like (a|b)* supported opperators are | + *</param>
         public Ndfa re2nfa(string regex)
         {
+            // Adds and 1 as end flag for the regex
             regex = regex + "1";
             Ndfa ndfa = new Ndfa();
 
+            // Main loop for converting regex to NDFA
             for (int i = 0; i < regex.Length; i++)
             {
                 char c = regex[i];
+
+                // Checks if a new alphabet has started
                 if (c == '(')
                 {
                     startNode = "q" + i;
@@ -66,6 +80,7 @@ namespace formele_methoden
                     continue;
                 }
 
+                // checks if alphabet has ended
                 if (c == ')')
                 {
                     endNode = "q" + i;
@@ -77,6 +92,7 @@ namespace formele_methoden
                     continue;
                 }
 
+                // Makes 2 links from the start of the alphabet to the end
                 if (c == '*')
                 {
                     if (startNode != null && endNode != null)
@@ -86,6 +102,7 @@ namespace formele_methoden
                     }
                 }
 
+                // Makes a link from the back to the start of the alphabet
                 if (c == '+')
                 {
                     if (startNode != null && endNode != null)
@@ -94,7 +111,8 @@ namespace formele_methoden
                     }
                 }
 
-                if (c == 'a' || c == 'b')
+                // Creates the alphabet nodes and links staring node to it
+                if (Char.IsLower(c))
                 {
                     List<char> chars = new List<char>();
 
@@ -103,7 +121,7 @@ namespace formele_methoden
                     while (true)
                     {
                         char t = regex[i + 1];
-                        if (t == 'a' || t == 'b')
+                        if (Char.IsLower(t))
                         {
                             chars.Add(t);
                             i++;
@@ -123,6 +141,7 @@ namespace formele_methoden
                     }
                 }
 
+                // Marks the end of the regex sting
                 if (c == '1')
                 {
                     String n = "q" + i;
@@ -131,6 +150,7 @@ namespace formele_methoden
                 }
             }
 
+            // Converts the bridge object to Customtransition
             foreach (Bridge b in bridges)
             {
                 ndfa.addTransition(new CustomTransition(b.startnode, b.endnode, b.key));
@@ -142,6 +162,8 @@ namespace formele_methoden
             return ndfa;
         }
 
+
+        // Links 2 nodes with a lable for graphviz
         public void link(String s, String e, String text)
         {
             if (text.Equals(""))
@@ -151,6 +173,7 @@ namespace formele_methoden
             this.bridges.Add(new Bridge(s, e, text));
         }
 
+        // Links all nodes with alphabet to the ending node
         public void connectEnds(List<string> nodes, String end)
         {
             if (!nodes.Any())

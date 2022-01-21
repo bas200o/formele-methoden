@@ -26,7 +26,7 @@ namespace Formele_Methoden
         /// </summary>
         private static void regexDemoOne()
         {
-            Regex r = new Regex("(a|b)+(b)*(a|b)");
+            Regex r = new Regex("(a|b)+(z)*(a|b)");
             Ndfa ndfa = r.re2nfa();
             ndfa.drawGraph("regexNDFA", "../../../graphs/regex_2_ndfa.dot");
         }
