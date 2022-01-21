@@ -24,43 +24,38 @@ namespace formele_methoden
             endStates = new List<string>();
         }
 
-        public List<string> getConnectionsEpsilon(string state, string symbol)
+        public List<string> getNextStates(string state, string symbol, bool isUsed)
         {
             HashSet<string> nextStates = new HashSet<string>();
 
-            // Loop through all the transitions of the ndfa
-            foreach(var transition in transitions)
+            foreach (CustomTransition transition in transitions)
             {
-                // Check whether the transition came from the state which was specified
-                if(transition.getOrigin() == state)
+                if (transition.getOrigin().Equals(state))
                 {
-                    // Check whether the transition symbol was an epsilon
-                    if(transition.getSymbol() == "ε")
+                    if (transition.getSymbol() == "ε")
                     {
-                        // Check whether the given symbol was an epsilon
                         if (symbol == "ε")
                         {
                             nextStates.Add(transition.getDestination());
-
-                            // Add to the nextStates recursively
-                            nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                            nextStates.UnionWith(getNextStates(transition.getDestination(), "ε", isUsed));
                         }
                         else
                         {
-                            nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                            nextStates.UnionWith(getNextStates(transition.getDestination(), symbol, isUsed));
                         }
-                    } 
-                    // Check whether the synbol matches the given symbol
+                    }
                     else if (symbol == transition.getSymbol())
                     {
                         nextStates.Add(transition.getDestination());
-
-                        // Add to the nextStates recursively
-                        nextStates.UnionWith(getConnectionsEpsilon(transition.getDestination(), "ε"));
+                        isUsed = true;
+                        nextStates.UnionWith(getNextStates(transition.getDestination(), "ε", isUsed));
                     }
                 }
+
             }
-            List<string> toReturn = nextStates.ToList(); 
+
+            List<string> toReturn = nextStates.ToList();
+
             return toReturn;
         }
 
@@ -72,6 +67,11 @@ namespace formele_methoden
         public List<string> getStartStates()
         {
             return this.startStates;
+        }
+
+        public List<string> getEndStates()
+        {
+            return this.endStates;
         }
 
         public void addTransition(CustomTransition t)
