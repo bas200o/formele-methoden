@@ -194,8 +194,8 @@ namespace formele_methoden
                         // Check for each node in the collection which transitions they have, and add it to their list
                         foreach(string s in stringsToCheck)
                         {                          
-                            string optionACleaned = getCombinationOfList(givenNdfa.getConnectionsEpsilon(s, "a"));
-                            string optionBCleaned = getCombinationOfList(givenNdfa.getConnectionsEpsilon(s, "b"));
+                            string optionACleaned = getCombinationOfList(givenNdfa.getNextStates(s, "a", false));
+                            string optionBCleaned = getCombinationOfList(givenNdfa.getNextStates(s, "b", false));
 
                             optionsA.Add(optionACleaned);
                             optionsB.Add(optionBCleaned);
@@ -243,13 +243,13 @@ namespace formele_methoden
                 foreach(string startNode in this.ndfaStartStates)
                 {
                     // Check whether the original node contains a start node
-                    if(originalNode.Contains(startNode))
+                    if(originalNode.Equals(startNode))
                     {
                         markStartState(originalNode);
                     }
 
                     // Check whether the destination node contains a start node
-                    if(destinationNode.Contains(startNode))
+                    if(destinationNode.Equals(startNode))
                     {
                         markStartState(destinationNode);  
                     }

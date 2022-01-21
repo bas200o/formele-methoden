@@ -5,7 +5,6 @@ namespace Formele_Methoden
 {
     class Program
     {
-        //TODO: Check recursive function in ndfa -> dfa
         //TODO: Implement minimalisation -- toDfa(reverse(toDfa(reverse(dfa))))
         //TODO: Check for multiple start states
         //TODO: Clean up / work out examples and make proper demo class
@@ -13,8 +12,8 @@ namespace Formele_Methoden
         {
             //ndfaDemoOne();
             //ndfaDemoTwo();
-            ndfaDemoEpsilonSimple();
-            //ndfaDemoEpsilonTwo();
+            //ndfaDemoEpsilonSimple();
+            ndfaDemoEpsilonTwo();
 
             //dfaMinimalize();
             //testing();
