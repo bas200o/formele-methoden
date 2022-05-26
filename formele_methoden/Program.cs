@@ -9,15 +9,18 @@ namespace Formele_Methoden
         {
             //regexDemo();
             //testDfaWordAccepted();
-            testDfaStartsWith();
+            testDfaStartsEndsContains();
         }
 
-        static private void testDfaStartsWith()
+        static private void testDfaStartsEndsContains()
         {
-            Dfa testDfa = new Dfa();
-            testDfa.startsWith("aab");
+            Dfa testDfaStartsWith = new Dfa();
+            testDfaStartsWith.startsWith("aab");
+            testDfaStartsWith.drawGraph("graph_2", "../../../graphs/'starts_with.dot");
 
-            testDfa.drawGraph("graph_2", "../../../graphs/'starts_with.dot");
+            Dfa testDfaEndsWith = new Dfa();
+            testDfaEndsWith.endsWith("aab");
+            testDfaEndsWith.drawGraph("graph_2", "../../../graphs/'ends_with.dot");
         }
 
         static private void testDfaWordAccepted()
