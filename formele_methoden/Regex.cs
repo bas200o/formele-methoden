@@ -280,6 +280,52 @@ namespace formele_methoden
 
             return toReturn;
         }
+
+        /// <summary>
+        /// A method which generates all the non-accepted combinations of a language in a sorted set
+        /// </summary>
+        /// <param name="maxSteps">The maximum of steps allowed</param>
+        /// <returns>A sorted set, which contains all the non-accepted languages</returns>
+        public SortedSet<string> getFaultyLanguage(int maxSteps)
+        {
+            Regex a = new Regex("a");
+            Regex b = new Regex("b");
+
+            Regex all = (a.or(b)).star();
+
+            SortedSet<string> supportedLanguage = getLanguage(maxSteps);
+            SortedSet<string> allCombinations = all.getLanguage(maxSteps);
+
+            foreach(string s in supportedLanguage)
+            {
+                allCombinations.Remove(s);
+            }
+
+            return allCombinations;
+        }
+
+        /// <summary>
+        /// A method which generates all the non-accepted combinations of a language in a string
+        /// </summary>
+        /// <param name="maxSteps">The maximum of steps allowed</param>
+        /// <returns>A string, which contains all the non accepted languages</returns>
+        public string getFaultyLanguageString(int maxSteps)
+        {
+            string toReturn = "";
+
+            foreach(string s in getFaultyLanguage(maxSteps))
+            {
+                toReturn += s;
+                toReturn += "\n";
+            }
+
+            if (toReturn.Equals(""))
+            {
+                toReturn = "All strings would be accepted using this regex!";
+            }
+
+            return toReturn;
+        }
     }
 
     /// <summary>

@@ -24,10 +24,17 @@ namespace Formele_Methoden
             Regex expression2 = expression1.plus(); // (aab|aa)+
             Regex expression3 = expression2.dot(all); // (aab|aa)+(a|b)*
 
-            Console.WriteLine("All possible combinations of (a|b)*\n" + all.getLanguageString(5));
-            Console.WriteLine("All possible combinations of (aab|aa)\n" + expression1.getLanguageString(5) + "\n\n");
-            Console.WriteLine("All possible combinations of (aab|aa)+\n" + expression2.getLanguageString(5) + "\n\n");
-            Console.WriteLine("All possible combinations of (aab|aa)+(a|b)*\n" + expression3.getLanguageString(5) + "\n\n");
+            Console.WriteLine("All accepted combinations of (a|b)*\n" + all.getLanguageString(5) + "\n\n");
+            Console.WriteLine("All non accepted combinations of (a|b)*\n" + all.getFaultyLanguageString(5) + "\n\n");
+
+            Console.WriteLine("All accepted combinations of (aab|aa)\n" + expression1.getLanguageString(5) + "\n\n");
+            Console.WriteLine("All non accepted combinations of (aab|aa)\n" + expression1.getFaultyLanguageString(5) + "\n\n");
+
+            Console.WriteLine("All accepted combinations of (aab|aa)+\n" + expression2.getLanguageString(5) + "\n\n");
+            Console.WriteLine("All non accepted combinations of (aab|aa)+\n" + expression2.getFaultyLanguageString(5) + "\n\n");
+
+            Console.WriteLine("All accepted combinations of (aab|aa)+(a|b)*\n" + expression3.getLanguageString(5) + "\n\n");
+            Console.WriteLine("All non accepted combinations of (aab|aa)+(a|b)*\n" + expression3.getFaultyLanguageString(5) + "\n\n");
         }
     }
 }
