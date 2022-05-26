@@ -7,7 +7,47 @@ namespace Formele_Methoden
     {
         static void Main(string[] args)
         {
-            regexDemo();
+            //regexDemo();
+            testDfaWordAccepted();
+        }
+
+        static private void testDfaWordAccepted()
+        {
+            Ndfa testNdfa = new Ndfa();
+            testNdfa.addTransition(new CustomTransition("q1", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q1", "q2", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q2", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q2", "q1", "b"));
+            testNdfa.addTransition(new CustomTransition("q2", "q3", "b"));
+            testNdfa.addTransition(new CustomTransition("q2", "q3", "ε"));
+
+            testNdfa.addTransition(new CustomTransition("q3", "q5", "a"));
+            testNdfa.addTransition(new CustomTransition("q3", "q5", "b"));
+
+            testNdfa.addTransition(new CustomTransition("q4", "q2", "ε"));
+            testNdfa.addTransition(new CustomTransition("q4", "q3", "a"));
+
+            testNdfa.addTransition(new CustomTransition("q5", "q4", "a"));
+            testNdfa.addTransition(new CustomTransition("q5", "q1", "b"));
+
+            testNdfa.markStartState("q1");
+            testNdfa.markEndState("q4");
+
+            //testNdfa.printTransitions();
+            testNdfa.drawGraph("graph_1", "../../../graphs/test_ndfa_word_accepted.dot");
+
+            Dfa testDfa = new Dfa(testNdfa);
+            testDfa.drawGraph("graph_2", "../../../graphs/ndfa_2_dfa_one.dot");
+
+            Console.WriteLine("ab is accepted: " + testDfa.checkWordAccepted("ab")); // Expected: False
+            Console.WriteLine("bb is accepted: " + testDfa.checkWordAccepted("bb")); // Expected: False
+            Console.WriteLine("bbab is accepted: " + testDfa.checkWordAccepted("bbab")); // Expected: False
+            Console.WriteLine("b is accepted: " + testDfa.checkWordAccepted("b")); // Expected: False
+
+            Console.WriteLine("bba is accepted: " + testDfa.checkWordAccepted("bba")); // Expected: True
+            Console.WriteLine("abba is accepted: " + testDfa.checkWordAccepted("abba")); // Expected: True
+            Console.WriteLine("aba is accepted: " + testDfa.checkWordAccepted("aba")); // Expected: True
         }
 
         static private void regexDemo()

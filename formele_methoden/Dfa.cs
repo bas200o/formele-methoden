@@ -416,5 +416,34 @@ namespace formele_methoden
                 Console.WriteLine(t);
             }
         }
+
+        /// <summary>
+        /// A function which can be used to check whether a specific word would be accepted by the dfa
+        /// </summary>
+        /// <param name="givenWord">The word which should be checked</param>
+        /// <returns></returns>
+        public bool checkWordAccepted(string givenWord)
+        {
+            // Initialize the first state (should always be q1)
+            string currentState = "q1";
+
+            // Loop through the characters of the give word
+            foreach(char currentChar in givenWord)
+            {
+                // Loop through all the transitions within the dfa
+                foreach(CustomTransition trans in this.transitions)
+                {
+                    if(trans.getOrigin() == currentState && trans.getSymbol() == currentChar.ToString())
+                    {
+                        // Look up what the new state would be, based on the current state and the current symbol
+                        currentState = trans.getDestination();
+                        break;
+                    }
+                }
+            }
+
+            // Check whether the state where the word ends up in is an end state
+            return endStates.Contains(currentState);
+        }
     }
 }
