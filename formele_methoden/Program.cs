@@ -8,7 +8,16 @@ namespace Formele_Methoden
         static void Main(string[] args)
         {
             //regexDemo();
-            testDfaWordAccepted();
+            //testDfaWordAccepted();
+            testDfaStartsWith();
+        }
+
+        static private void testDfaStartsWith()
+        {
+            Dfa testDfa = new Dfa();
+            testDfa.startsWith("aab");
+
+            testDfa.drawGraph("graph_2", "../../../graphs/'starts_with.dot");
         }
 
         static private void testDfaWordAccepted()

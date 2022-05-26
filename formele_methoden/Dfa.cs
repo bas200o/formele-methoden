@@ -38,6 +38,50 @@ namespace formele_methoden
         }
 
         /// <summary>
+        /// A constructor of the DFA to generate an empty DFA
+        /// </summary>
+        public Dfa()
+        {
+            // Initialize the empty variables
+            transitions = new List<CustomTransition>();
+            startStates = new List<string>();
+            endStates = new List<string>();
+            ndfaStartStates = new List<string>();
+            ndfaEndStates = new List<string>();
+        }
+
+        /// <summary>
+        /// A method which can be used to generate a DFA, which starts with a specific prefix
+        /// </summary>
+        /// <param name="givenString">The characters the DFA should start with</param>
+        public void startsWith(string givenString)
+        {
+            Ndfa newNdfa = new Ndfa();
+
+            // Add the core transitions (starts with)
+            for(int i = 0; i < givenString.Length; i++)
+            {
+                string currentState = "q" + (i + 1);
+                string nextState = "q" + (i + 2);
+
+                string symbol = givenString[i].ToString();
+                newNdfa.addTransition(new CustomTransition(currentState, nextState, symbol));
+            }
+
+            // Loop the end state to itself
+            string endState = "q" + (givenString.Length + 1);
+            newNdfa.addTransition(new CustomTransition(endState, endState, "a"));
+            newNdfa.addTransition(new CustomTransition(endState, endState, "b"));
+
+            // Mark the start and end states
+            newNdfa.markStartState("q1");
+            newNdfa.markEndState(endState);
+
+            // Initialize a DFA, based on the ndfa
+            createDfa(newNdfa);
+        }
+
+        /// <summary>
         /// A function which can be used to get the reverse of a DFA
         /// </summary>
         /// <returns>A NDFA object which contains the reversed DFA</returns>
