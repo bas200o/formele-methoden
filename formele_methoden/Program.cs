@@ -16,11 +16,15 @@ namespace Formele_Methoden
         {
             Dfa testDfaStartsWith = new Dfa();
             testDfaStartsWith.startsWith("aab");
-            testDfaStartsWith.drawGraph("graph_2", "../../../graphs/'starts_with.dot");
+            testDfaStartsWith.drawGraph("graph_2", "../../../graphs/starts_with.dot");
 
             Dfa testDfaEndsWith = new Dfa();
-            testDfaEndsWith.endsWith("aab");
-            testDfaEndsWith.drawGraph("graph_2", "../../../graphs/'ends_with.dot");
+            testDfaEndsWith.endsWith("aabaaaab");
+            testDfaEndsWith.drawGraph("graph_2", "../../../graphs/ends_with.dot");
+
+            Dfa testDfaShouldContain = new Dfa();
+            testDfaShouldContain.shouldContain("aab");
+            testDfaShouldContain.drawGraph("graph_2", "../../../graphs/should_contain.dot");
         }
 
         static private void testDfaWordAccepted()

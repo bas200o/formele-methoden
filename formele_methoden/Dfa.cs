@@ -51,6 +51,45 @@ namespace formele_methoden
         }
 
         /// <summary>
+        /// A function which can be used to generate a DFA, which should contain a specific character series
+        /// </summary>
+        /// <param name="givenString">The characters the DFA should contain</param>
+        public void shouldContain(string givenString)
+        {
+            Ndfa newNdfa = new Ndfa();
+
+            // Add the core transitions
+            for (int i = 0; i < givenString.Length; i++)
+            {
+                // Initialize the current and next state
+                string currentState = "q" + (i + 1);
+                string nextState = "q" + (i + 2);
+
+                // Add the transition from current to next state
+                string symbol = givenString[i].ToString();
+                newNdfa.addTransition(new CustomTransition(currentState, nextState, symbol));
+
+                // Add the transition back to the base state
+                string returnSymbol = symbol == "a" ? "b" : "a";
+                newNdfa.addTransition(new CustomTransition(currentState, "q1", returnSymbol));
+            }
+
+            // Loop the end state to itself
+            string endState = "q" + (givenString.Length + 1);
+            newNdfa.addTransition(new CustomTransition(endState, endState, "a"));
+            newNdfa.addTransition(new CustomTransition(endState, endState, "b"));
+
+            // Mark the start and end states
+            newNdfa.markStartState("q1");
+            newNdfa.markEndState(endState);
+            ndfaStartStates.Add("q1");
+            ndfaEndStates.Add(endState);
+
+            // Initialize a DFA, based on the ndfa
+            createDfa(newNdfa);
+        }
+
+        /// <summary>
         /// A function which can be used to generate a DFA, which ends with a specific suffix
         /// </summary>
         /// <param name="givenString">The characters the DFA should end with</param>
