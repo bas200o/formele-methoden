@@ -9,7 +9,16 @@ namespace Formele_Methoden
         {
             //regexDemo();
             //testDfaWordAccepted();
-            testDfaStartsEndsContains();
+            //testDfaStartsEndsContains();
+            demoThompson();
+        }
+
+        static private void demoThompson()
+        {
+            Thompson thompson = new Thompson("(a|b)*");
+            Ndfa newNdfa = thompson.generateThompsonNdfa();
+
+            newNdfa.drawGraph("graph_2", "../../../graphs/thompson_demo.dot");
         }
 
         static private void testDfaStartsEndsContains()
