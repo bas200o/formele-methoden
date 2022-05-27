@@ -1,0 +1,13 @@
+digraph graph_2
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q0; 
+	q6 [label =q6, shape = doublecircle]; 
+	q0 -> q1 [label=a]; 
+	q0 -> q3 [label=b]; 
+	q3 -> q4 [label=ε]; 
+	q1 -> q4 [label=ε]; 
+	q0 -> q4 [label=ε]; 
+	q4 -> q0 [label=ε]; 
+	q4 -> q6 [label=ε]; 
+}
