@@ -15,6 +15,9 @@ namespace Formele_Methoden
             dfaReverseExampleOne();
         }
 
+        /// <summary>
+        /// A function which can be used to demonstrate the Thompson construction (Regex -> NDFA)
+        /// </summary>
         static private void demoThompson()
         {
             Thompson thompson = new Thompson("(a|b)*");
@@ -23,6 +26,9 @@ namespace Formele_Methoden
             newNdfa.drawGraph("graph_2", "../../../graphs/thompson_demo.dot");
         }
 
+        /// <summary>
+        /// A function which can be used to test the 'start with', 'ends with' and 'contains'
+        /// </summary>
         static private void testDfaStartsEndsContains()
         {
             Dfa testDfaStartsWith = new Dfa();
@@ -38,6 +44,9 @@ namespace Formele_Methoden
             testDfaShouldContain.drawGraph("graph_2", "../../../graphs/should_contain.dot");
         }
 
+        /// <summary>
+        /// A function which tests whether a word will be accepted by a DFA
+        /// </summary>
         static private void testDfaWordAccepted()
         {
             Ndfa testNdfa = new Ndfa();
@@ -77,6 +86,9 @@ namespace Formele_Methoden
             Console.WriteLine("aba is accepted: " + testDfa.checkWordAccepted("aba")); // Expected: True
         }
 
+        /// <summary>
+        /// A function which can be used to demonstrate the regex functionality, including accepted/non accepted combinations
+        /// </summary>
         static private void regexDemo()
         {
             Regex a = new Regex("a");
