@@ -1,0 +1,17 @@
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/formele_methoden
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/formele_methoden.deps.json
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/formele_methoden.runtimeconfig.json
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/formele_methoden.dll
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/ref/formele_methoden.dll
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/formele_methoden.pdb
+/home/bas/Documents/git/formele-methoden/formele_methoden/bin/Debug/net6.0/csdot.dll
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.csproj.AssemblyReference.cache
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.GeneratedMSBuildEditorConfig.editorconfig
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.AssemblyInfoInputs.cache
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.AssemblyInfo.cs
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.csproj.CoreCompileInputs.cache
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.csproj.CopyComplete
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.dll
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/ref/formele_methoden.dll
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.pdb
+/home/bas/Documents/git/formele-methoden/formele_methoden/obj/Debug/net6.0/formele_methoden.genruntimeconfig.cache

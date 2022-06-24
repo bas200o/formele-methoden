@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "formele_methoden/1.0.0": {
+        "dependencies": {
+          "csdot": "2.0.1"
+        },
+        "runtime": {
+          "formele_methoden.dll": {}
+        }
+      },
+      "csdot/2.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/csdot.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "formele_methoden/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "csdot/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lStsF4GyhiNI4haiMPl4oRLiwA/GiN2051lciUPFZgCyuQ/LIUh6s2XA9UqoACHiweM0KW2jf0P/0p9i++a+dQ==",
+      "path": "csdot/2.0.1",
+      "hashPath": "csdot.2.0.1.nupkg.sha512"
+    }
+  }
+}
