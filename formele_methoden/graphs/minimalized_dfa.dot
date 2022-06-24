@@ -1,0 +1,14 @@
+digraph reversed_ndfa_2
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q4; 
+	q0q2 [label =q0q2, shape = doublecircle]; 
+	q4 -> q2 [label=a]; 
+	q4 -> q1q2 [label=b]; 
+	q2 -> q2 [label=a]; 
+	q2 -> q1q2 [label=b]; 
+	q1q2 -> q0q2 [label=a]; 
+	q1q2 -> q1q2 [label=b]; 
+	q0q2 -> q2 [label=a]; 
+	q0q2 -> q1q2 [label=b]; 
+}

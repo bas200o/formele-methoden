@@ -1,0 +1,19 @@
+digraph graph_2
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q1; 
+	q2q3q4 [label =q2q3q4, shape = doublecircle]; 
+	q2q3q4q5 [label =q2q3q4q5, shape = doublecircle]; 
+	q1 -> q2q3q4 [label=a]; 
+	q1 -> q2q3 [label=b]; 
+	q2q3q4 -> q2q3q4q5 [label=a]; 
+	q2q3q4 -> q1q3q5 [label=b]; 
+	q2q3 -> q2q3q4q5 [label=a]; 
+	q2q3 -> q1q3q5 [label=b]; 
+	q2q3q4q5 -> q2q3q4q5 [label=a]; 
+	q2q3q4q5 -> q1q3q5 [label=b]; 
+	q1q3q5 -> q2q3q4q5 [label=a]; 
+	q1q3q5 -> q1q2q3q5 [label=b]; 
+	q1q2q3q5 -> q2q3q4q5 [label=a]; 
+	q1q2q3q5 -> q1q2q3q5 [label=b]; 
+}

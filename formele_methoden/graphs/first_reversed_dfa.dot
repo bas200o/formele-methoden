@@ -1,0 +1,14 @@
+digraph reversed_dfa_1
+{
+	rankdir =  LR; node_start [label = "", shape = none]; 
+	node_start ->  q6; 
+	q0q1q2q3q4q5 [label =q0q1q2q3q4q5, shape = doublecircle]; 
+	q6 -> q1q3 [label=a]; 
+	q6 -> Fuik [label=b]; 
+	q1q3 -> Fuik [label=a]; 
+	q1q3 -> q0q1q2q3q4q5 [label=b]; 
+	Fuik -> Fuik [label=a]; 
+	Fuik -> Fuik [label=b]; 
+	q0q1q2q3q4q5 -> q0q1q2q3q4q5 [label=a]; 
+	q0q1q2q3q4q5 -> q0q1q2q3q4q5 [label=b]; 
+}
